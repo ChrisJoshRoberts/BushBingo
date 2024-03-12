@@ -1,0 +1,10 @@
+<h1>
+  <%= @park.name %>
+  Animals
+</h1>
+
+<% @park.animals.each do |animal| %>
+  <div>
+    <%= animal.name %>
+  </div>
+<% end %>
