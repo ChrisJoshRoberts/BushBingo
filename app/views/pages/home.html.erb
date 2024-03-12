@@ -1,8 +1,11 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!--<p>Find me in app/views/pages/home.html.erb</p>-->
 
 <% @animals.each do |animal| %>
-  <%= animal.sound %>
+
   <%= image_tag animal.spoor %>
   <%= image_tag animal.image %>
+  <audio controls>
+    <source src="<%= (animal.sound) %>" type="audio/mpeg">
+  </audio>
 <% end %>
