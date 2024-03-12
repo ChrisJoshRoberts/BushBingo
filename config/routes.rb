@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :parks, only: [:index, :show]
+  resources :parks, only: [:index, :show] do
+    resources :park_animals, only: [:index, :show]
+  end
 
   resources :animals, only: [:show]
 
