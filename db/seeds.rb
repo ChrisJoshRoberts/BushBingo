@@ -13,7 +13,7 @@ lion = Animal.create(
   animal_type: "Mammal",
   points: 5,
   description: "The lion is a large carnivorous feline of the Panthera genus. It is known for its majestic mane and powerful roar.",
-  sound: Rails.root.join('public', 'sounds', 'ion_roar.mp3'),
+  sound: "sounds/lion_roar.mp3",
   spoor: ActionController::Base.helpers.asset_path("Lion_paw.png"),
   image: ActionController::Base.helpers.asset_path("lion_thumbnail.png") ,
   diet: "Carnivore",
