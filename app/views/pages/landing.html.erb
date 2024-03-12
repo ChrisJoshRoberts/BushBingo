@@ -1,0 +1,18 @@
+
+<!--<div class="logo-container" data-controller = "landingpage">
+  <img src=<%#= asset_path('/app/assets/images/Screenshot 2024-03-12 152058.png') %> alt="Logo" class="logo">
+</div>-->
+<div data-controller="landing-page">
+
+  <div class="landing-container">
+    <div class="landing-card d-none" data-landing-page-target="card">
+      <h2>Hello User!</h2>
+      <p>Welcome to Bush Bingo! Would you like to play or read the rules?</p>
+      <!-- Other content for the play card -->
+      <%= link_to "Rules", root_path, class: "btn-white" %>
+      <%= link_to "Play", root_path, class: "btn-orange" %>
+
+    </div>
+    <img src="<%= asset_path('Screenshot 2024-03-12 152058.png') %>" alt="Logo" class="logo">
+  </div>
+</div>
