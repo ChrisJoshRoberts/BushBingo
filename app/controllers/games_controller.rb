@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [ :show, :edit, :update]
+  before_action :set_game, only: %i[ show ]
 
   # GET /games  //do I need to get the games?
   def index
@@ -13,18 +13,6 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
-  end
-
-  # GET /games/1/edit
-  def edit
-  end
-
-  def update
-    if @game.update(game_params)
-      redirect_to @game, notice: 'Game was successfully updated.'
-    else
-      render :edit
-    end
   end
 
   # POST /games
