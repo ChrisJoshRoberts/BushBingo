@@ -1,4 +1,4 @@
 class ParkAnimal < ApplicationRecord
-  belongs_to :animals
-  belongs_to :parks
+  belongs_to :animal
+  belongs_to :park
 end
