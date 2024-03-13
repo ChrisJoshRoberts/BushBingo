@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["card"]
   connect() {
     console.log(this.cardTarget)
-    setTimeout(() => this.showCard(), 3000)
+    setTimeout(() => this.showCard(), 1500)
   }
 
   showCard() {

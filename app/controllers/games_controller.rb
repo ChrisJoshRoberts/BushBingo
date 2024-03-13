@@ -25,15 +25,14 @@ class GamesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
+  
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_game
-      @game = Game.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def game_params
-      params.require(:game).permit(:name, :status)
-    end
+  def set_game
+    @game = Game.find(params[:id])
+  end
+
+  def game_params
+    params.require(:game).permit(:name, :status)
+  end
 end
