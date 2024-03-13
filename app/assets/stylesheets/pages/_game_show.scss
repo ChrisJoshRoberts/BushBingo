@@ -1,64 +1,27 @@
-//Navbar.
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-
-//footer
-.footer {
-  background: #F4F4F4;
+.header{
   display: flex;
+  background-color: white;
+  box-shadow: 0px 9px 10px -4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
-}
-.footer-links {
-  display: flex;
-  align-items: center;
-}
-.footer-links a {
-  color: black;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
-}
-.footer-links a:hover {
-  opacity: 1;
-}
-.footer .fa-heart {
-  color: #D23333;
-}
 
-
-
-
-
-
-
-
-
-
-
-
-h1 {
-  color: red;
-}
-
-.game-show-container {
-  h1 {
-    color: red;
+  p {
+    margin: 0;
   }
-  font-family: nunito;
+
+  h1 {
+    font-weight: 900;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.header-infos {
+  width: 70%
+}
+
+.header-location {
+  display: flex;
+  width: 30%;
 }
