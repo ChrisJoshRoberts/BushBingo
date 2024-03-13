@@ -1,7 +1,7 @@
 <h1>
-  <%= @park_animal.name %>
+  <%= @park_animal.animal.name %>
 </h1>
 
-<div>
-  <%= @park_animal.description %>
-</div>
+<%= image_tag @park_animal.animal.image %>
+
+

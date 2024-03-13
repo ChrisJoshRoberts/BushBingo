@@ -551,4 +551,12 @@ golden_gate = Park.create(
   description: "Golden Gate Highlands National Park is located in the Free State province of South Africa. It is known for its stunning sandstone formations, expansive grasslands, and rich biodiversity.",
   image: "golden_gate.png"
 )
+all_animals = Animal.all
+
+kruger_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+  animal_id: animal.id,
+  park_id: kruger.id
+)
+end
 puts "Seeding completed."

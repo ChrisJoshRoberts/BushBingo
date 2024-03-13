@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :games, only: [:index, :show, :create, :destroy] do
-    resources :game_players
+    resources :game_players do
+      member do
+        patch :accept
+      end
+    end
     resources :animals, only: [:index, :show] do
       resources :spotted_animals, only: [:create, :destroy]
     end
