@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :games, only: [:index, :show, :create, :destroy] do
+  resources :games, only: [:index, :show, :new, :create, :destroy] do
     resources :game_players do
       member do
         patch :accept

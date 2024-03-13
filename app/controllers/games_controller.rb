@@ -20,7 +20,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      redirect_to game_path(@game), notice: "Game was successfully created."
+      redirect_to new_game_game_player_path(@game), notice: "Game was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,11 +28,13 @@ class GamesController < ApplicationController
   
   private
 
-  def set_game
-    @game = Game.find(params[:id])
-  end
 
-  def game_params
-    params.require(:game).permit(:name, :status)
-  end
+    # Only allow a list of trusted parameters through.
+    def game_params
+      params.require(:game).permit(:name, :park_id, :status)
+    end
+
+    def set_game
+      @game = Game.find(params[:id])
+    end
 end
