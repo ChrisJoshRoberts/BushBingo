@@ -8,6 +8,7 @@ class GamesController < ApplicationController
 
   # GET /games/1
   def show
+    @park = @game.park
   end
 
   # GET /games/new
