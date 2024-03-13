@@ -1,0 +1,13 @@
+<% @game_players.each do |game_player| %>
+  <h3>You have been invited to join <%= game_player.game.name %></h3>
+  <% if game_player.status == "accepted" %>
+    <p><%= game_player.status %></p>
+  <% else %>
+    <%= form_with(model: game_player, url: accept_game_game_player_path(game_player.game, game_player), method: :patch) do |f| %>
+      <%= f.submit "Accept" %>
+    <% end %>
+    <%= form_with(model: game_player, url: game_game_player_path(game_player.game, game_player), method: :delete) do |f| %>
+      <%= f.submit "Reject" %>
+    <% end %>
+  <% end %>
+<% end %>

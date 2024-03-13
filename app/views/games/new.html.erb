@@ -1,3 +1,7 @@
-<h1>Currently Playing</h1>
+<%= simple_form_for(@game) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :park_id, collection: Park.all, label_method: :name, value_method: :id %>
+  <%= f.hidden_field :status, value: "started" %>
+  <%= f.submit "Next" %>
+<% end %>
 
-<%= render "form", game: @game %>

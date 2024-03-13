@@ -1,5 +1,11 @@
 class PagesController < ApplicationController
-  def home
-    @user = current_user
+  def landing
   end
+
+  def play
+  end
+
+  def rules
+  end
+
 end

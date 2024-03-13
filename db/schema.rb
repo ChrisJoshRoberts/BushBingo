@@ -10,20 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_144224) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_181529) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "animals", force: :cascade do |t|
     t.string "name"
     t.integer "points"
-    t.string "species"
+    t.string "animal_type"
     t.text "description"
     t.string "sound"
     t.string "spoor"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "diet"
+    t.string "lifespan"
+    t.string "conservation_status"
+    t.text "behaviour"
+    t.string "known_habitat"
+    t.string "photos", default: [], array: true
   end
 
   create_table "game_players", force: :cascade do |t|
@@ -61,6 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_144224) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "spotted_animals", force: :cascade do |t|

@@ -19,9 +19,10 @@
     <p>Points: 0</p>
     <% @game.game_players.each do |game_player| %>
       <%= game_player.points %>
-      <%= game_player.user.name %>
+      <%= game_player.user.email %>
     <% end %>
   </div>
 </div>
 
 <%= render "footer" %>
+
