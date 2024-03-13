@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[ show edit update]
+  before_action :set_game, only: %i[show edit update]
 
   # GET /games  //do I need to get the games?
   def index
@@ -30,24 +30,21 @@ class GamesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /games/1
   def update
-    if @game.update(Game_params)
-      redirect_to @, notice: "Game was successfully updated.", status: :see_other
+    if @game.update(game_params)
+      redirect_to @game, notice: "Game was successfully updated.", status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_game
-      @game = Game.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def game_params
-      params.require(:game).permit(:name, :status)
-    end
+  def set_game
+    @game = Game.find(params[:id])
+  end
+
+  def game_params
+    params.require(:game).permit(:name, :status)
+  end
 end
