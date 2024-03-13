@@ -3,6 +3,7 @@ class ParkAnimalsController < ApplicationController
     @park = Park.find(params[:park_id])
     @park_animals = @park.park_animals
     @game = find_game_for_park(@park)
+    @game_animal_spotted = SpottedAnimal.where(game_player_id: current_user.game_player.id)
   end
 
   def show

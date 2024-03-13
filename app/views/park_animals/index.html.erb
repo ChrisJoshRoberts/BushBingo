@@ -5,7 +5,14 @@
 
 <% @park_animals.each do |animal| %>
   <%= link_to animal.animal.name, park_park_animal_path(animal.park.id, animal.id) %>
-  <button>
-    <%= link_to "+ Add", game_animal_spotted_animals_path(@game, animal.animal)  %>
-  </button>
+
+  <% simple_form_for([ @game, @game_animal_spotted ]) do |f| %>
+    <%= f.hidden_field :game_id, value: @game.id %>
+    <%= f.hidden_field :animal_id, value: animal.animal.id %>
+    <%= f.hidden_field :status, value: "pending" %>
+    <%= f.submit "+ Add"  %>
+  <% end %>
+<!--  <button>-->
+    <%#= link_to "+ Add", game_animal_spotted_animals_path(@game, animal.animal)  %>
+<!--  </button>-->
 <% end %>
