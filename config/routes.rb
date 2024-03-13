@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   resources :animals, only: [:show]
 
   root to: "pages#landing"
+
   get '/play', to: 'pages#play'
   get '/rules', to: 'pages#rules'
-
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

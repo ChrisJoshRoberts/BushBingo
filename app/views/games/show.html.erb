@@ -4,7 +4,7 @@
 
 
 <% @game.game_players.each do |game_player| %>
-  <%= game_player.points %>
-  <%= game_player.user.name %>
+  <p><%= game_player.points %></p>
+  <p><%= game_player.user.email %></p>
 
 <% end %>
