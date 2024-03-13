@@ -1,21 +1,18 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[ show ]
 
-  # GET /games  //do I need to get the games?
   def index
     @games = Game.all
   end
 
-  # GET /games/1
   def show
+    @game = Game.find(params[:id])
   end
 
-  # GET /games/new
   def new
     @game = Game.new
   end
 
-  # POST /games
   def create
     @game = Game.new(game_params)
 
@@ -27,7 +24,7 @@ class GamesController < ApplicationController
   end
   
   private
-
+    # Use callbacks to share common setup or constraints between actions.
 
     # Only allow a list of trusted parameters through.
     def game_params
