@@ -30,14 +30,6 @@ class GamesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /games/1
-  def update
-    if @game.update(Game_params)
-      redirect_to @, notice: "Game was successfully updated.", status: :see_other
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
 
 
   private
