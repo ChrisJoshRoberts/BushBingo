@@ -4,7 +4,6 @@ class SpottedAnimalsController < ApplicationController
     @animal = Animal.find(params[:animal_id])
     @game = Game.find(params[:game_id])
     @spotted_animal = SpottedAnimal.new(spotted_animal_params)
-
   end
 
   private

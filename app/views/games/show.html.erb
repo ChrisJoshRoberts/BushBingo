@@ -2,9 +2,7 @@
 <p>Status: <%= @game.status %></p>
 <p>Park: <%= @game.park.name %></p>
 
-
 <% @game.game_players.each do |game_player| %>
   <%= game_player.points %>
   <%= game_player.user.name %>
-
 <% end %>

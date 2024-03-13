@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[ show edit update]
+  before_action :set_game, only: [ :show, :edit, :update]
 
   # GET /games  //do I need to get the games?
   def index
@@ -19,18 +19,23 @@ class GamesController < ApplicationController
   def edit
   end
 
+  def update
+    if @game.update(game_params)
+      redirect_to @game, notice: 'Game was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   # POST /games
   def create
     @game = Game.new(game_params)
-
     if @game.save
       redirect_to game_path(@game), notice: "Game was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
-
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -40,6 +45,6 @@ class GamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_params
-      params.require(:game).permit(:name, :status)
+      params.require(:game).permit(:name, :status, :park_id)
     end
 end
