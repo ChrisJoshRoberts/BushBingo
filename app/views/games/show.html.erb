@@ -1,10 +1,23 @@
-<h1><%= @game.name %></h1>
-<p>Status: <%= @game.status %></p>
-<p>Park: <%= @game.park.name %></p>
-
+<div class="header">
+  <div class="header-infos">
+    <p>Currently Playing</p>
+    <h1><%= @game.name %></h1>
+  </div>
+  <div class="header-location">
+    <i class="fa-solid fa-location-dot"></i>
+    <p> <%= @game.park.name %></p>
+  </div>
+  <%# <a href="..." class="btn btn-warning">pause</a>
+  <a href="..." class="btn btn-warning">Play</a> %>
+</div>
 
 <% @game.game_players.each do |game_player| %>
   <p><%= game_player.points %></p>
   <p><%= game_player.user.email %></p>
-
+  <% game_player.animals.each do |animal| %>
+    <%= image_tag animal.image %>
+    <p><%= animal.name %> <span><%= animal.points %></span> </p>
+  <% end %>
 <% end %>
+
+<%#= link_to "add sighting", park_park_animals_path(@park) %>

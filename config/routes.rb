@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  get 'parks/index'
 
   resources :games, only: [:index, :show, :new, :create, :destroy] do
     resources :game_players do
@@ -7,13 +10,14 @@ Rails.application.routes.draw do
         patch :accept
       end
     end
+
     resources :animals, only: [:index, :show] do
       resources :spotted_animals, only: [:create, :destroy]
     end
-  end
 
-  resources :parks, only: [:index, :show] do
-    resources :park_animals, only: [:index, :show]
+    resources :parks, only: [:index, :show] do
+      resources :park_animals, only: [:index, :show]
+    end
   end
 
   resources :animals, only: [:index, :show]

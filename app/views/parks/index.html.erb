@@ -1,0 +1,29 @@
+<div class="park_container m-20" >
+
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <h1>Where do you want to play</h1>
+    <%= form_with url: parks_index_path, method: :get, class: "d-flex my-3" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Name of park"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <% @parks.each do |park| %>
+    <div class="col-sm-4">
+      <div class="park-card">
+        <div class="park-image-wrapper">
+          <%= image_tag park.image %>
+        </div>
+        <p><%= park.name %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
