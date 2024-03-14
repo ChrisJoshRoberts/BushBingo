@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'parks/index'
   devise_for :users
 
   resources :games, only: [:index, :show, :new, :create, :destroy] do
