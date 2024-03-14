@@ -6,7 +6,8 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
+
+    @park = @game.park
   end
 
   def new
@@ -15,7 +16,6 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-
     if @game.save
       redirect_to new_game_game_player_path(@game), notice: "Game was successfully created."
     else
@@ -28,9 +28,9 @@ class GamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_params
-      params.require(:game).permit(:name, :park_id, :status)
+      params.require(:game).permit(:name, :status, :park_id)
     end
-
+  
     def set_game
       @game = Game.find(params[:id])
     end
