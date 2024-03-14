@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'parks/index'
   devise_for :users
 
   resources :games, only: [:index, :show, :create, :destroy] do
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :parks, only: [:index, :show] do
+    get 'search', on: :collection
     resources :park_animals, only: [:index, :show]
   end
 
