@@ -1,0 +1,27 @@
+.header{
+  display: flex;
+  background-color: white;
+  box-shadow: 0px 9px 10px -4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    font-weight: 900;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.header-infos {
+  width: 70%
+}
+
+.header-location {
+  display: flex;
+  width: 30%;
+}

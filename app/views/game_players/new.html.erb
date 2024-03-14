@@ -1,12 +1,14 @@
 <h1>Invite Friends to your game:</h1>
 <% @users.each do |user| %>
-  <%= user.email %>
-  <%= simple_form_for([ @game, @game_player ]) do |f| %>
-    <%= f.hidden_field :game_id, value: @game.id %>
-    <%= f.hidden_field :user_id, value: user.id %>
-    <%= f.hidden_field :points, value: 0 %>
-    <%= f.hidden_field :status, value: "pending" %>
-    <%= f.submit "+" %>
+  <% unless user.id == current_user.id %>
+    <%= user.email %>
+    <%= simple_form_for([ @game, @game_player ]) do |f| %>
+      <%= f.hidden_field :game_id, value: @game.id %>
+      <%= f.hidden_field :user_id, value: user.id %>
+      <%= f.hidden_field :points, value: 0 %>
+      <%= f.hidden_field :status, value: "pending" %>
+      <%= f.submit "+" %>
+    <% end %>
   <% end %>
 <% end %>
 
@@ -15,6 +17,5 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :points, value: 0 %>
     <%= f.hidden_field :status, value: "accepted" %>
-    <%= f.submit "Continue To #{@game.title}'s dashboard"  %>
+    <%= f.submit "Continue To #{@game.name}'s dashboard"  %>
   <% end %>
-  

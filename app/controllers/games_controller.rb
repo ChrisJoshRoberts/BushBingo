@@ -1,50 +1,37 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[show edit update]
+  before_action :set_game, only: %i[ show ]
 
-  # GET /games  //do I need to get the games?
   def index
     @games = Game.all
   end
 
-  # GET /games/1
   def show
+
+    @park = @game.park
   end
 
-  # GET /games/new
   def new
     @game = Game.new
   end
 
-  # GET /games/1/edit
-  def edit
-  end
-
-  # POST /games
   def create
     @game = Game.new(game_params)
-
     if @game.save
-      redirect_to game_path(@game), notice: "Game was successfully created."
+      redirect_to new_game_game_player_path(@game), notice: "Game was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
-
-  def update
-    if @game.update(game_params)
-      redirect_to @game, notice: "Game was successfully updated.", status: :see_other
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
+  
   private
+    # Use callbacks to share common setup or constraints between actions.
 
-  def set_game
-    @game = Game.find(params[:id])
-  end
-
-  def game_params
-    params.require(:game).permit(:name, :status)
-  end
+    # Only allow a list of trusted parameters through.
+    def game_params
+      params.require(:game).permit(:name, :status, :park_id)
+    end
+  
+    def set_game
+      @game = Game.find(params[:id])
+    end
 end
