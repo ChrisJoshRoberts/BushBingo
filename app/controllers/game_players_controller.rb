@@ -18,6 +18,27 @@ class GamePlayersController < ApplicationController
     end
   end
 
+  def edit
+    @game_player = GamePlayer.find(params[:id])
+    @game = Game.find(params[:game_id])
+    @images = [
+      { url: 'elephant_avatar.png' },
+      { url: 'giraffe_avatar.png' },
+      { url: 'hippo_avatar.png' },
+      { url: 'lion_avatar.png' },
+      { url: 'monkey_avatar.png' },
+      { url: 'zebra_avatar.png' }
+    ]
+  end
+
+  def update
+    @game = Game.find(params[:game_id])
+    @game_player = GamePlayer.find(params[:id])
+
+    @game_player.update(avatar: params[:game_player][:avatar])
+    redirect_to game_path(@game)
+  end
+
   def accept
     @game_player = GamePlayer.find(params[:id])
     @game_player.status = "accepted"

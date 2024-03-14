@@ -5,13 +5,13 @@
         <div class="flexbox">
           <% if user.name.present? %>
             <%= user.name %>
-          <% end %>
-          <%= simple_form_for([ @game, @game_player ]) do |f| %>
-            <%= f.hidden_field :game_id, value: @game.id %>
-            <%= f.hidden_field :user_id, value: user.id %>
-            <%= f.hidden_field :points, value: 0 %>
-            <%= f.hidden_field :status, value: "pending" %>
-            <%= f.submit "+", class: "add_btn" %>
+            <%= simple_form_for([ @game, @game_player ]) do |f| %>
+              <%= f.hidden_field :game_id, value: @game.id %>
+              <%= f.hidden_field :user_id, value: user.id %>
+              <%= f.hidden_field :points, value: 0 %>
+              <%= f.hidden_field :status, value: "pending" %>
+              <%= f.submit "+", class: "add_btn" %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
