@@ -1,0 +1,11 @@
+<h1>Pick Your Avatar For <%= @game.name %></h1>
+<%= form_for([@game, @game_player]) do |f| %>
+  <% @images.each do |image| %>
+    <label>
+      <%= f.radio_button :avatar, image[:url] %>
+      <%= image_tag image[:url] %>
+    </label>
+  <% end %>
+
+  <%= f.submit "Submit" %>
+<% end %>
