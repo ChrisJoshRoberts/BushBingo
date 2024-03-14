@@ -1,3 +1,8 @@
+.body{
+  background-color: orange;
+}
+
+
 .header{
   display: flex;
   background-color: white;
@@ -5,6 +10,10 @@
   padding: 1.5rem;
   align-items: center;
   justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+
 
   p {
     margin: 0;
@@ -18,12 +27,5 @@
 }
 
 .header-infos {
-  // width: 70%
-}
-
-.header-location {
-  display: flex;
-  p {
-    font-size: smaller;
-  }
+  text-align: center;
 }

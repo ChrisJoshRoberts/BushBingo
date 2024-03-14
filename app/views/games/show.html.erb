@@ -1,25 +1,16 @@
-<div class="header">
-  <div class="header-infos">
-    <p>Currently Playing</p>
-    <h1><%= @game.name %></h1>
-    <div class="header-location">
-      <i class="fa-solid fa-location-dot"></i>
-      <p> <%= @game.park.name %></p>
+<div class = container>
+  <div class="header">
+    <div class="header-infos">
+      <p>Currently Playing</p>
+      <h1><%= @game.name %></h1>
+      <p>Points: 22</p>
     </div>
-  </div>
-
-  <%# <a href="..." class="btn btn-warning">pause</a>
-  <a href="..." class="btn btn-warning">Play</a> %>
 </div>
-
+</div>
 
 <div>
   <h2>Players</h2>
   <div>
-    <!--<%= image_tag('boy2.png', alt: 'little boy', class: 'player-avatar') %>-->
-    <p>Friend Name:</p>
-    <p>Points: 0</p>
-
   <% @game.game_players.each do |game_player| %>
     <p><%= game_player.points %></p>
     <p><%= game_player.user.email %></p>
@@ -31,9 +22,8 @@
   </div>
 </div>
 
-
-
-<%#= link_to "add sighting", park_park_animals_path(@park) %>
-
+<%= link_to root_path, class: "btn btn-flat" do %>
+  <strong>+</strong>
+<% end %>
 
 <%= render "footer" %>
