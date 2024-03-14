@@ -6,7 +6,6 @@ class GamesController < ApplicationController
   end
 
   def show
-
     @park = @game.park
   end
 
@@ -22,7 +21,7 @@ class GamesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
 
@@ -30,7 +29,7 @@ class GamesController < ApplicationController
     def game_params
       params.require(:game).permit(:name, :status, :park_id)
     end
-  
+
     def set_game
       @game = Game.find(params[:id])
     end
