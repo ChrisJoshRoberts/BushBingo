@@ -12,16 +12,18 @@
 
   h1 {
     font-weight: 900;
-    margin: 0;
+    // margin: 0;
     font-size: 1.5rem;
   }
 }
 
 .header-infos {
-  width: 70%
+  // width: 70%
 }
 
 .header-location {
   display: flex;
-  width: 30%;
+  p {
+    font-size: smaller;
+  }
 }

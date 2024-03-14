@@ -2,11 +2,12 @@
   <div class="header-infos">
     <p>Currently Playing</p>
     <h1><%= @game.name %></h1>
+    <div class="header-location">
+      <i class="fa-solid fa-location-dot"></i>
+      <p> <%= @game.park.name %></p>
+    </div>
   </div>
-  <div class="header-location">
-    <i class="fa-solid fa-location-dot"></i>
-    <p> <%= @game.park.name %></p>
-  </div>
+
   <%# <a href="..." class="btn btn-warning">pause</a>
   <a href="..." class="btn btn-warning">Play</a> %>
 </div>
@@ -25,4 +26,3 @@
 </div>
 
 <%= render "footer" %>
-
