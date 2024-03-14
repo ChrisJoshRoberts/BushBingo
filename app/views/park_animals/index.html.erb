@@ -1,7 +1,11 @@
-<h1>
+<div>
+  <h1>
   <%= @park.name %>
   Animals
 </h1>
+<%= link_to "cancel", game_path(@game) %>
+</div>
+
 
 <% @park_animals.each do |park_animal| %>
   <%= link_to park_animal.animal.name, game_park_park_animal_path(@game.id, @park.id, park_animal) %>
