@@ -8,6 +8,7 @@ class GamesController < ApplicationController
   def show
     @park = @game.park
     @game  = Game.find(params[:id]) #?
+    @user_gameplayer = current_user.game_players.where(game_id: @game.id).first
   end
 
   def new
