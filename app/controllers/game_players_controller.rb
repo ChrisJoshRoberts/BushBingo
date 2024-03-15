@@ -16,7 +16,7 @@ class GamePlayersController < ApplicationController
   def create
     @game_player = GamePlayer.new(game_player_params)
     if @game_player.save
-      redirect_to game_path(@game_player.game) if @game_player.user_id == current_user.id
+      redirect_to edit_game_game_player_path(@game_player.game, @game_player) if @game_player.user_id == current_user.id
     else
       render :new, status: :unprocessable_entity
     end
