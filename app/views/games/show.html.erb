@@ -3,10 +3,8 @@
       <div class="header-infos">
         <p>Currently Playing</p>
         <h1><%= @game.name %></h1>
-        <p>Points: 22</p>
       </div>
   </div>
-
 
   <div>
     <h2>Players</h2>
@@ -15,11 +13,24 @@
       <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">My Sightings</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">My Friends</button>
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Leaderboard</button>
     </li>
   </ul>
 
   <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <!-- Content for "My Sightings" tab -->
+      <div class="">
+        <% @game.game_players.each do |game_player| %>
+          <p><%= game_player.points %></p>
+          <p><%= game_player.user.email %></p>
+          <% game_player.animals.each do |animal| %>
+            <%= image_tag animal.image %>
+            <p><%= animal.name %> <span><%= animal.points %></span> </p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
       <!-- Content from the provided code snippet -->
@@ -41,13 +52,6 @@
 <%= render "footer" %>
 </div>
 
-<% @game.game_players.each do |game_player| %>
-  <p><%= game_player.points %></p>
-  <p><%= game_player.user.email %></p>
-  <% game_player.animals.each do |animal| %>
-    <%= image_tag animal.image %>
-    <p><%= animal.name %> <span><%= animal.points %></span> </p>
-  <% end %>
-<% end %>
+
 
 <%= link_to "add sighting", game_park_park_animals_path(@game, @park) %>
