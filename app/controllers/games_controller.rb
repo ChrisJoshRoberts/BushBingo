@@ -13,6 +13,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @parks = Park.all
   end
 
   def create

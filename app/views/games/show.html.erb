@@ -1,3 +1,4 @@
+
 <div class="header">
       <div class="header-infos">
         <p>Currently Playing</p>
@@ -42,7 +43,6 @@
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-      <!-- Content from the provided code snippet -->
       <div>
         <% @game.game_players.each do |game_player| %>
           <p>user email: <%= game_player.user.email %></p>
@@ -56,10 +56,11 @@
       </div>
     </div>
   </div>
-
+</div>
 
 <%= render partial: "partial/footer"%>
 </div>
+
 
 
 <div class="sighting-btn">
