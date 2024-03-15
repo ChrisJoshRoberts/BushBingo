@@ -1,7 +1,8 @@
+<h1>Give your game a name</h1>
 <%= simple_form_for(@game) do |f| %>
   <%= f.input :name %>
   <%= f.input :park_id, collection: Park.all, label_method: :name, value_method: :id %>
   <%= f.hidden_field :status, value: "started" %>
   <%= f.submit "Next" %>
 <% end %>
-
+<%= link_to "Go to dashboard", games_path %>
