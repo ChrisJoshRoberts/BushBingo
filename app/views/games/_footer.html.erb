@@ -1,8 +1,20 @@
+
 <div class="footer">
   <div class="footer-links">
-    <a href="#"><i class="fa-solid fa-house"></i></a>
-    <a href="#"><i class="fa-solid fa-tree"></i></a>
-    <a href="#"><i class="fa-solid fa-paw "></i></a>
-    <a href="" id="footer-avatar"><%= image_tag('cuttie.png', alt: 'little girl', class: 'footer-avatar') %></a>
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+     <%= link_to games_path(@game) do %>
+      <i class="fa-solid fa-play"></i>
+    <% end %>
+    <%= link_to game_animals_path(@game) do %>
+      <i class="fa-solid fa-paw"></i>
+    <% end %>
+
+  <% if user_signed_in? && current_user.photo.present? %>
+    <%= link_to edit_user_registration_path do %>
+      <%= cl_image_tag(current_user.photo.key) %>
+    <% end %>
+  <% end %>
   </div>
 </div>
