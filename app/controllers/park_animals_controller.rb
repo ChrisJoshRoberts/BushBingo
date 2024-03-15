@@ -8,5 +8,7 @@ class ParkAnimalsController < ApplicationController
 
   def show
     @park_animal = ParkAnimal.find(params[:id])
+    @park = Park.find(params[:park_id])
+    @game = Game.find(params[:game_id])
   end
 end
