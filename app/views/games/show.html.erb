@@ -40,6 +40,14 @@
 
 <%= render "footer" %>
 </div>
-<!---->
-<%#= link_to "add sighting", game_park_park_animals_path(@game, @park) %>
-<%#= link_to "end game", games_path %>
+
+<% @game.game_players.each do |game_player| %>
+  <p><%= game_player.points %></p>
+  <p><%= game_player.user.email %></p>
+  <% game_player.animals.each do |animal| %>
+    <%= image_tag animal.image %>
+    <p><%= animal.name %> <span><%= animal.points %></span> </p>
+  <% end %>
+<% end %>
+
+<%= link_to "add sighting", game_park_park_animals_path(@game, @park) %>

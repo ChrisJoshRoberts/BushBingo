@@ -1,4 +1,3 @@
-<h1>Give your game a name</h1>
 <%= simple_form_for(@game) do |f| %>
   <%= f.input :name %>
   <%= f.input :park_id, collection: Park.all, label_method: :name, value_method: :id %>
@@ -6,5 +5,8 @@
   <%= f.submit "Next" %>
 <% end %>
 
+<<<<<<< HEAD
 <%#= render "footer"  %>
 <%= link_to "Go to dashboard", games_path %>
+=======
+>>>>>>> parent of 32600c7 (starting styling)
