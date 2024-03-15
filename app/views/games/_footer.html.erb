@@ -10,10 +10,11 @@
     <%= link_to game_animals_path(@game) do %>
       <i class="fa-solid fa-paw"></i>
     <% end %>
+
+  <% if user_signed_in? && current_user.photo.present? %>
     <%= link_to edit_user_registration_path do %>
-      <i class="fa-solid fa-user"></i>
+      <%= cl_image_tag(current_user.photo.key) %>
     <% end %>
+  <% end %>
   </div>
 </div>
-
-
