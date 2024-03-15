@@ -1,0 +1,11 @@
+<h1><%= @animal.name %></h1>
+<p><%= @animal.description %></p>
+<%= image_tag @animal.spoor %>
+<p><%= @animal.diet %></p>
+<p><%= @animal.lifespan %></p>
+<p><%= @animal.conservation_status %></p>
+<p><%= @animal.behaviour %></p>
+<p><%= @animal.known_habitat %></p>
+<% @animal.photos.each do |photo| %>
+  <%= image_tag photo %>
+<% end %>

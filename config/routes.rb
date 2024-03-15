@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :animals, only: [:show]
+  resources :animals, only: [:index, :show]
 
   root to: "pages#landing"
 
