@@ -1,7 +1,9 @@
 
 <div class="header">
       <div class="header-infos">
-        <%= image_tag @user_gameplayer.avatar, class: "avatar" if @user_gameplayer.avatar.present? %>
+        <% if @user_gameplayer.avatar.present? %>
+          <%= image_tag @user_gameplayer.avatar, class: "avatar" %>
+        <% end %>
         <p>Currently Playing</p>
 
         <h1><%= @game.name %></h1>

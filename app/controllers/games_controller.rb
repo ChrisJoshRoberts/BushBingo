@@ -9,6 +9,7 @@ class GamesController < ApplicationController
     @park = @game.park
     @user = current_user
     @game_player = GamePlayer.find_by(game: @game, user: @user)
+    @user_gameplayer = current_user.game_players.where(game: @game.id).first
   end
 
   def new
