@@ -5,8 +5,12 @@ class GamePlayersController < ApplicationController
 
   def new
     @game_player = GamePlayer.new
-    @users = User.all
     @game = Game.find(params[:game_id])
+    if params[:query].present?
+      @users = User.search_by_name(params[:query])
+    else
+      @users = User.all
+    end
   end
 
   def create
@@ -57,4 +61,6 @@ class GamePlayersController < ApplicationController
   def game_player_params
     params.require(:game_player).permit(:user_id, :game_id, :status, :points)
   end
+
+
 end
