@@ -11,3 +11,12 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/container";
+@import "pages/park_animal_show";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+  background-image: url("backdorund_image_bb.png");
+  font-family: "Montserrat", sans-serif;
+}

@@ -5,14 +5,18 @@ class GamePlayersController < ApplicationController
 
   def new
     @game_player = GamePlayer.new
-    @users = User.all
     @game = Game.find(params[:game_id])
+    if params[:query].present?
+      @users = User.search_by_name(params[:query])
+    else
+      @users = User.all
+    end
   end
 
   def create
     @game_player = GamePlayer.new(game_player_params)
     if @game_player.save
-      redirect_to game_path(@game_player.game) if @game_player.user_id == current_user.id
+      redirect_to edit_game_game_player_path(@game_player.game, @game_player) if @game_player.user_id == current_user.id
     else
       render :new, status: :unprocessable_entity
     end
@@ -57,4 +61,6 @@ class GamePlayersController < ApplicationController
   def game_player_params
     params.require(:game_player).permit(:user_id, :game_id, :status, :points)
   end
+
+
 end

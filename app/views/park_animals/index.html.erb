@@ -1,15 +1,73 @@
-<div>
-  <h1>
-  <%= @park.name %>
-  Animals
-</h1>
-<%= link_to "cancel", game_path(@game) %>
+
+<!--<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%#= form_with url: game_park_park_animals_path, method: :get, class: "d-flex my-3" do %>-->
+      <%#= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Name of animal"
+        %>
+      <%#= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <%# end %>
+<!--  </div>
 </div>
 
+<div>
+  <h1>
+  <%#= @park.name %>-->
+<!--  Animals
+</h1>
+<%#= link_to "cancel", game_path(@game) %>-->
+<!--</div>
 
+<<<<<<< HEAD
 <% @park_animals.each do |park_animal| %>
+  <div class="animal-card">
+    <%= image_tag(park_animal.animal.image) %>
+    <div class="game-info">
+      <%= link_to park_animal.animal.name, game_park_park_animal_path(@game.id, @park.id, park_animal) %>
+      <p>points: <%= park_animal.animal.points %></p>
+    </div>
+      <%= simple_form_for([@game, park_animal.animal, @spotted_animal]) do |f| %>
+      <button type="submit">
+        <%= image_tag("add.png") %>
+      </button>
+      <% end %>
+  </div>
+=======
+
+<%# @park_animals.each do |park_animal| %>-->
+  <%#= link_to park_animal.animal.name, game_park_park_animal_path(@game.id, @park.id, park_animal) %>
+  <%#= simple_form_for([@game, park_animal.animal, @spotted_animal]) do |f| %>
+      <%#= f.submit "add" %>
+  <%# end %>
+<%# end %>
+<!---->
+
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: game_park_park_animals_path, method: :get, class: "d-flex my-3" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Name of animal"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <h1><%= @park.name %> Animals</h1>
+  <%= link_to "cancel", game_path(@game) %>
+</div>
+
+<% @search_results.each do |park_animal| %>
   <%= link_to park_animal.animal.name, game_park_park_animal_path(@game.id, @park.id, park_animal) %>
   <%= simple_form_for([@game, park_animal.animal, @spotted_animal]) do |f| %>
       <%= f.submit "add" %>
   <% end %>
+>>>>>>> master
 <% end %>
+
+<%= render partial: "partial/footer"%>

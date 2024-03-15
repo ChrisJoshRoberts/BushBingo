@@ -1,10 +1,30 @@
 <div class="invites">
+
+
   <h1>Invite Friends to your game:</h1>
+
+  <div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url:  new_game_game_player_path, method: :get, class: "d-flex my-3" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Name of user"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
     <% @users.each do |user| %>
       <% unless user.id == current_user.id %>
         <div class="flexbox">
+          <% if user.photo.present? %>
+            <%= cl_image_tag(user.photo.key, class: "avatar") %>
+          <% end %>
           <% if user.name.present? %>
-            <%= user.name %>
+            <p class="name"><%= user.name %></p>
             <%= simple_form_for([ @game, @game_player ]) do |f| %>
               <%= f.hidden_field :game_id, value: @game.id %>
               <%= f.hidden_field :user_id, value: user.id %>
@@ -22,6 +42,6 @@
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :points, value: 0 %>
       <%= f.hidden_field :status, value: "accepted" %>
-      <%= f.submit "Continue To #{@game.name}'s dashboard", class: "continue_btn" %>
+      <%= f.submit "Continue", class: "continue_btn" %>
     <% end %>
 </div>
