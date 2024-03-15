@@ -1,8 +1,12 @@
-<div class = container>
-    <div class="header">
+
+<div class="header">
+      <div class="header-infos">
+        <p>Currently Playing</p>
         <h1><%= @game.name %></h1>
-        <p>Points: <%= @user_gameplayer.points %></p>
-    </div>
+      </div>
+      <h2><%= @user.name %></h2>
+      <h3><%= @game_player.points %></h3>
+  </div>
 
   <div>
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -19,11 +23,20 @@
 
       <div class="">
         <% @game.game_players.each do |game_player| %>
-          <p><%= game_player.points %></p>
-          <p><%= game_player.user.email %></p>
+          <p><%#= game_player.points %></p>
+          <p><%#= game_player.user.email %></p>
           <% game_player.animals.each do |animal| %>
+          <div class="spotted-animal-card">
             <%= image_tag animal.image %>
-            <p><%= animal.name %> <span><%= animal.points %></span> </p>
+            <div class="animal-info">
+              <h2><%= animal.name %></h2>
+              <p>points: <span><%= animal.points %></span></p>
+              <div class="link">
+                <%= link_to "View" %>
+              </div>
+            </div>
+
+          </div>
           <% end %>
         <% end %>
       </div>
@@ -45,8 +58,11 @@
   </div>
 </div>
 
-<%= render "footer" %>
+<%= render partial: "partial/footer"%>
+</div>
 
 
 
-<%= link_to "add sighting", game_park_park_animals_path(@game, @park) %>
+<div class="sighting-btn">
+  <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
+</div>
