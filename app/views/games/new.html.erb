@@ -1,10 +1,20 @@
-<%= simple_form_for(@game) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :park_id, collection: Park.all, label_method: :name, value_method: :id %>
-  <%= f.hidden_field :status, value: "started" %>
-  <%= f.submit "Next" %>
-<% end %>
+<div class="parks_cont">
+  <%= simple_form_for(@game, html: { class: "name_input" }) do |f| %>
+    <%= f.input :name %>
+    <h1>Pick a Park<%= @game.name %></h1>
+      <% @parks.each do |park| %>
+        <label class="park_card">
+          <%= park.name %>
+          <%= f.radio_button :park_id, park.id %>
+          <%= image_tag park.image, class: "park_img" %>
+        </label>
+      <% end %>
+    <%= f.hidden_field :status, value: "started" %>
+    <div class="button_container">
+      <%= f.submit "Next", class: "next_btn" %>
+    </div>
+  <% end %>
 
-<%#= render "footer"  %>
-<%= link_to "Go to dashboard", games_path %>
-
+  <%#= render "footer"  %>
+  <%= link_to "Go to dashboard", games_path %>
+<div class="parks_cont">

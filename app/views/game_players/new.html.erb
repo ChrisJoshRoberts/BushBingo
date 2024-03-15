@@ -3,6 +3,9 @@
     <% @users.each do |user| %>
       <% unless user.id == current_user.id %>
         <div class="flexbox">
+          <% if user.photo.present? %>
+            <%= cl_image_tag user.photo.key, class: "avatar" %>
+          <% end %>
           <% if user.name.present? %>
             <%= user.name %>
             <%= simple_form_for([ @game, @game_player ]) do |f| %>
