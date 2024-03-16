@@ -14,9 +14,35 @@
 @import "pages/park_animal_show";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 
 body {
-  background-image: url("backdorund_image_bb.png");
-  font-family: "Montserrat", sans-serif;
+  background-image: url("white_background_image.png");
+  font-family: "Raleway", sans-serif;
+}
+.logo-sml {
+  width: 50px;
+}
+.heading {
+  display: flex;
+  margin-bottom: 24px;
+}
+.logo-container {
+  margin: 8px;
+}
+
+.back-arrow {
+  margin-top: 84px;
+  margin-left: 16px;
+}
+.rules-container{
+  position: relative;
+}
+#rules-start {
+  position: absolute;
+  text-align: center;
+  bottom: -8px;
+  width: 100%;
 }
