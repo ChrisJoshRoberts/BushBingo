@@ -1,7 +1,16 @@
-<div class="parks_cont">
-  <%= simple_form_for(@game, html: { class: "name_input" }) do |f| %>
-    <%= f.input :name %>
-    <h1>Pick a Park<%= @game.name %></h1>
+<div class="parks_container">
+  <%= simple_form_for(@game, html: { class: "input" }) do |f| %>
+  <div class="heading-parks">
+    <div class="logo-container">
+      <%= image_tag('pango_logo.png',class: "logo-sml") %>
+      <h2>Let's start by naming your game!</h2>
+    </div>
+  </div>
+  <div class="form-content">
+    <%= f.input :name, label: "Name your game below:",  input_html: { class: "input-form" },label_html: { style: "text-align: left;" }%>
+  </div>
+    <div class="parks-container d-none">
+      <h1>Pick a Park<%= @game.name %></h1>
       <% @parks.each do |park| %>
         <label class="park_card">
           <%= park.name %>
@@ -9,12 +18,14 @@
           <%= image_tag park.image, class: "park_img" %>
         </label>
       <% end %>
-    <%= f.hidden_field :status, value: "started" %>
+      <%= f.hidden_field :status, value: "started" %>
     <div class="button_container">
-      <%= f.submit "Next", class: "next_btn" %>
+      <%= f.submit "Next", class: "btn-primary" %>
+      <%= link_to "Go to dashboard instead", games_path, class: "btn-secondary" %>
+    </div>
     </div>
   <% end %>
 
   <%#= render "footer"  %>
-  <%= link_to "Go to dashboard", games_path %>
-<div class="parks_cont">
+
+</div>
