@@ -3,10 +3,13 @@
   <div class="heading-parks" data-form-target="heading">
     <div class="logo-container">
       <%= image_tag('pango_logo.png',class: "logo-sml") %>
-      <h2>Let's start by naming your game!</h2>
+      <div class="message">
+        <h2 style="color: #FB5607;">Awesome!</h2>
+        <h2>Let's start by naming your game!</h2>
+      </div>
     </div>
     <div class="form-content">
-      <%= f.input :name, label: "Name your game below:",  input_html: { class: "input-form", "data-form-target": "form"},label_html: { style: "display: none;"}%>
+      <%= f.input :name, label: "Name your game below:",  input_html: { class: "input-form", placeholder: "Enter game name...", "data-form-target": "form"},label_html: { style: "display: none;"}%>
     </div>
   </div>
     <div class="parks-container-2 trans" data-form-target="parksContainer">
@@ -14,11 +17,14 @@
       <% @parks.each do |park| %>
         <label>
           <div class="park-card">
-            <div class="radio-btn">
-              <%= f.radio_button :park_id, park.id %>
-              <h2><%= park.name %></h2>
+            <div>
+              <div class="radio-btn">
+                <%= f.radio_button :park_id, park.id %>
+                <h2><%= park.name %></h2>
+              </div>
+              <%= image_tag park.image, class: "park_img" %>
             </div>
-          <%= image_tag park.image, class: "park_img" %>
+            <%= link_to "View" , park_path(park) %>
           </div>
         </label>
       <% end %>

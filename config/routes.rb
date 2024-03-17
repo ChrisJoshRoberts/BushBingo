@@ -15,12 +15,13 @@ Rails.application.routes.draw do
       resources :spotted_animals, only: [:create, :destroy]
     end
 
-    resources :parks, only: [:index, :show] do
+    resources :parks, only: [:index] do
       resources :park_animals, only: [:index, :show]
     end
   end
 
   resources :animals, only: [:show]
+  resources :parks, only: [:show]
 
   root to: "pages#landing"
 

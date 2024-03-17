@@ -57,15 +57,16 @@
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
       <div>
-        <% @game.game_players.each do |game_player| %>
-          <p>user email: <%= game_player.user.email %></p>
-          <p>Points: <%= game_player.points %></p>
-          <h3>Animals spotted</h3>
-          <% game_player.animals.each do |animal| %>
-            <%= image_tag animal.image %>
-            <p><%= animal.name %> <span><%= animal.points %></span> </p>
+        <div class="leaderboard-card">
+          <% @game.game_players.each do |game_player| %>
+            <div class="leaderboard-item">
+              <strong><p><%= game_player.user.name %></p></strong>
+
+              <p>Points: <%= game_player.points %></p>
+              <%= link_to "View Sightings" %>
+            </div>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
