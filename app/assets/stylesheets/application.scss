@@ -64,3 +64,17 @@ body {
   }
 
 }
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0px;
+}
+.no-sightings {
+  margin-top: 240px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0.4;
+}

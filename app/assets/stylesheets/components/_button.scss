@@ -29,7 +29,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #219EBC;
+  background-image: radial-gradient(circle at 30% 60%, #FFA629, #E07C0C);
   color: white;
   padding: 10px;
   border-radius: 50%;
@@ -37,6 +37,11 @@
   width: 75px;
   height: 75px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  &:active {
+    background-image: radial-gradient(circle at 30% 60%, #e0870b, #b16105);
+    transform: scale(0.95);
+  }
 
   img {
     width: 30px;
