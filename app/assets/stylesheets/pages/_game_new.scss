@@ -1,39 +1,37 @@
-.parks_container {
+.parks-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 95%;
   margin: 84px auto;
   height: 100vh;
 
-
-  .park_card {
-    width: 48%;
-
-    .park_img {
-      width: 100%;
-    }
-
-  }
-  .button_container {
-    margin: 10px;
-  }
-
-  .next_btn {
-    padding: 8px;
-    width: 60px;
-    border-radius: 8px;
-    transition: 0.6s ease;
-
-    &:hover {
-      background-color: rgb(76, 76, 179);
-      color: white;
-    }
-
+  h1{
+    font-family: "Raleway", sans-serif;
+    font-weight: bolder;
   }
 }
+.parks-container-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  height: 100vh;
+
+  h1{
+    font-family: "Raleway", sans-serif;
+    font-weight: bolder;
+  }
+
+}
 .form-content {
-  justify-content: center;
+  width: 90%;
 
 }
 .input-form {
+  margin-left: 16px;
+  display: flex;
+  justify-content: center;
   width: 100%;
   border: 0.5px solid #575757;
   border-radius: 90px;
@@ -51,8 +49,33 @@
   };
 
   h2 {
+    font-size: 20px;
     width: 90%;
     font-family: "Raleway", sans-serif;
     font-weight: bolder;
   }
+}
+.trans {
+  opacity: 0;
+  transition: 0.6s ease;
+}
+.visible {
+  opacity: 1;
+  transition: 0.6s ease;
+}
+label {
+  border: none;
+}
+.background {
+  background-color: white;
+  width: 100%;
+}
+.button_container {
+  text-align: center;
+  position: sticky;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 44px;
 }

@@ -1,26 +1,30 @@
-<div class="parks_container">
+<div class="parks-container" data-controller="form">
   <%= simple_form_for(@game, html: { class: "input" }) do |f| %>
-  <div class="heading-parks">
+  <div class="heading-parks" data-form-target="heading">
     <div class="logo-container">
       <%= image_tag('pango_logo.png',class: "logo-sml") %>
       <h2>Let's start by naming your game!</h2>
     </div>
+    <div class="form-content">
+      <%= f.input :name, label: "Name your game below:",  input_html: { class: "input-form", "data-form-target": "form"},label_html: { style: "display: none;"}%>
+    </div>
   </div>
-  <div class="form-content">
-    <%= f.input :name, label: "Name your game below:",  input_html: { class: "input-form" },label_html: { style: "text-align: left;" }%>
-  </div>
-    <div class="parks-container d-none">
-      <h1>Pick a Park<%= @game.name %></h1>
+    <div class="parks-container-2 trans" data-form-target="parksContainer">
+      <h1>Next step: Pick a Park<%= @game.name %></h1>
       <% @parks.each do |park| %>
-        <label class="park_card">
-          <%= park.name %>
-          <%= f.radio_button :park_id, park.id %>
+        <label>
+          <div class="park-card">
+            <div class="radio-btn">
+              <%= f.radio_button :park_id, park.id %>
+              <h2><%= park.name %></h2>
+            </div>
           <%= image_tag park.image, class: "park_img" %>
+          </div>
         </label>
       <% end %>
       <%= f.hidden_field :status, value: "started" %>
     <div class="button_container">
-      <%= f.submit "Next", class: "btn-primary" %>
+      <%= f.submit "Next", class: "btn-primary", style: "border: none" %>
       <%= link_to "Go to dashboard instead", games_path, class: "btn-secondary" %>
     </div>
     </div>
