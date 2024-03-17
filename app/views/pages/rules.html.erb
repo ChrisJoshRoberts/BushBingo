@@ -1,29 +1,36 @@
-<div class="d-flex justify-content-center">
-<div class = "rule_container m-4 p-4"  style="background-color: white;">
-  <h3><strong>Welcome to BushBingo Safari Edition!</strong></h3>
-  <h3><strong>How to Play</strong></h3>
+<div class="rules-container">
+  <%= link_to image_tag("back_arrow.png", class: "back-arrow"), root_path  %>
 
-  <ul>
-    <li><strong>Start the Adventure:</strong> Launch BushBingo and create a game. Invite friends for competition or play solo</li>
-    <li><strong>Spot Wildlife:</strong> Spot animals on your safari and claim sightings in the app to earn points. Rare animals earn more points!</li>
-    <li><strong>Compete & Win:</strong> Challenge friends to see who spots the most wildlife. The player with the highest score wins!</li>
-  </ul>
+  <div class = "rule_container m-4 p-4" >
+    <div class="heading">
+      <div class="logo-container">
+        <img class="logo-sml" src="<%= asset_path('pango_logo.png') %>" alt="Logo" class="logo">
+      </div>
+      <h3><strong>Welcome to BushBingo Safari Edition!</strong></h3>
+    </div>
 
-  <h3><strong>Tips for success</strong></h3>
+    <h3><strong>How to Play</strong></h3>
 
-  <ul>
-    <li>Keep your eyes peeled for wildlife sightings.</li>
-    <li>Work together or go solo to rack up points.</li>
-    <li>Stay focused and strategic to maximize your score.</li>
-  </ul>
+    <ul>
+      <li><strong>Start the Adventure:</strong> Launch BushBingo and create a game. Invite friends for competition or play solo</li>
+      <li><strong>Spot Wildlife:</strong> Spot animals on your safari and claim sightings in the app to earn points. Rare animals earn more points!</li>
+      <li><strong>Compete & Win:</strong> Challenge friends to see who spots the most wildlife. The player with the highest score wins!</li>
+    </ul>
 
-  <h3><strong>Let the Safari Begin!</strong></h3>
-  <p>Gear up for a thrilling safari adventure with BushBingo Safari Edition! Start spotting, competing, and winning in the wild!</p>
-</div>
+    <h3><strong>Tips for success</strong></h3>
+
+    <ul>
+      <li>Keep your eyes peeled for wildlife sightings.</li>
+      <li>Work together or go solo to rack up points.</li>
+      <li>Stay focused and strategic to maximize your score.</li>
+    </ul>
+
+    <h3><strong>Let the Safari Begin!</strong></h3>
+    <p>Gear up for a thrilling safari adventure with BushBingo Safari Edition! Start spotting, competing, and winning in the wild!</p>
+
+  </div>
+    <div id="rules-start">
+      <%= link_to "Start playing", new_game_path, class: "btn-primary"%>
+    </div>
 </div>
 <!--<img src="<%#= asset_path('Screenshot 2024-03-12 152058.png') %>" alt="Logo" class="logo">-->
-<div class="d-flex justify-content-center">
-  <div class="logo-container">
-    <img src="<%= asset_path('Screenshot 2024-03-12 152058.png') %>" alt="Logo" class="logo">
-  </div>
-</div>

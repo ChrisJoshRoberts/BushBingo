@@ -1,5 +1,9 @@
+
+.landing-page-container {
+  background-image: url("white_background_image.png");
+  height: 100vh;
+}
 .landing-container {
-  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,14 +18,32 @@
 }
 
 .landing-card {
+  text-align: center;
+  margin: 16px;
   width: 75%;
   padding: 1rem;
   border-radius: 10px;
-  background-color: white;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin-bottom: 2rem;
+  border: none;
+  background-color: transparent;
 
   a {
     text-decoration: none;
   }
+  h2 {
+    font-family: "Raileway", sans-serif;
+    font-weight: 900;
+  }
+  p {
+    font-family: "Raileway", sans-serif;
+    font-weight: 300;
+  }
+}
+.card {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.card.show {
+  opacity: 1;
 }

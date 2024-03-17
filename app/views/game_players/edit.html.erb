@@ -1,11 +1,16 @@
-<h1>Pick Your Avatar For <%= @game.name %></h1>
-<%= form_for([@game, @game_player]) do |f| %>
-  <% @images.each do |image| %>
-    <label>
-      <%= f.radio_button :avatar, image[:url] %>
-      <%= image_tag image[:url] %>
-    </label>
+<div class="avatar-page-container">
+  <h1>Pick Your Avatar For <%= @game.name %></h1>
+  <%= form_for([@game, @game_player]) do |f| %>
+    <div class="avatar-container">
+      <% @images.each do |image| %>
+        <div class="animal-avatar">
+          <label>
+            <%= f.radio_button :avatar, image[:url] %>
+            <%= image_tag image[:url] %>
+          </label>
+        </div>
+      <% end %>
+    </div>
+    <%= f.submit "Submit", class: "btn-primary", style: "border: none;" %>
   <% end %>
-
-  <%= f.submit "Submit" %>
-<% end %>
+</div>

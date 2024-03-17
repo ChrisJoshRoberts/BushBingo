@@ -1,17 +1,64 @@
 .park-card {
   display: flex;
-  border: 1px solid grey;
-  border-radius: 9px;
-  box-shadow: 1px 1px 1px 1px #d1d1d1;
-  gap: 20px;
-  margin: 15px;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
   align-items: center;
-  // padding: 10px;
+  margin: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+
+  img {
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  a{
+    padding-top: 16px;
+    font-size: 24px;
+    text-decoration: none;
+    color: #FB5607;
+    font-weight: bolder;
+  }
 }
 
-.park-image-wrapper {
-  width: 400px;
-  img {
-    max-width: 100%;
+.radio-btn {
+  display: flex;
+
+  h2 {
+    margin: 8px;
+  }
+}
+
+.radio-btn input[type="radio"]:checked ~ .park-card {
+  border: 0.5px solid #FB5607;
+}
+
+.park-show-container {
+  margin: 84px auto;
+}
+.park-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px;
+}
+.park-img {
+  width: 100%;
+  border-radius: 14px;
+}
+.location {
+  width: 20px;
+  margin-right: 8px;
+}
+.park-titles {
+  width: 100%;
+  margin-top: 16px;
+
+  h1 {
+    font-family: "Raleway", sans-serif;
+    font-weight: bolder;
   }
 }
