@@ -1,78 +1,79 @@
-
-<div class="header">
-      <div class="header-infos">
-        <p>Currently Playing</p>
-        <h1><%= @game.name %></h1>
-        <div class="user-game-info-container">
-          <% if @user_gameplayer.avatar.present? %>
-            <%= image_tag @user_gameplayer.avatar, class: "avatar" %>
-          <% end %>
-          <h2 style="margin: 8px;"><%= @user.name %></h2>
+<% content_for :body_class, 'game-background' %>
+<div class=>
+    <div class="header">
+        <div class="header-infos">
+          <div class="user-game-info-container">
+            <% if @user_gameplayer.avatar.present? %>
+              <%= image_tag @user_gameplayer.avatar, class: "avatar" %>
+            <% end %>
+          </div>
+          <div class="info-titles">
+            <h1><%= @game.name %></h1>
+            <h2><%= @user.name %></h2>
+            <h3> Total points: <span class="points"><%= @game_player.points %></span></h3>
+          </div>
         </div>
-        <h3 style="margin: 8px;"> points: <%= @game_player.points %></h3>
-      </div>
-
-  </div>
-
-  <div>
-    <div class="toggle-container">
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">My Sightings</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Leaderboard</button>
-        </li>
-      </ul>
     </div>
 
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <% unless @game_player.points > 0 %>
-        <div class="no-sightings">
-          <h1>No Sightings Yet</h1>
-          <p>Click + button to add animals</p>
-        </div>
-      <% end %>
-      <div>
-        <div class="sightings-container">
-          <% @game.game_players.each do |game_player| %>
-            <% game_player.animals.each do |animal| %>
-              <% park_animal = ParkAnimal.find_by(animal_id: animal.id, park_id: @park.id) %>
-              <div class="spotted-animal-card">
-                <%= image_tag animal.image %>
-                <div class="animal-info">
-                  <h2><%= animal.name %></h2>
-                  <p>points: <span><%= animal.points %></span></p>
-                  <div class="link">
-                    <%= link_to "View", game_park_park_animal_path(@game, @park, park_animal) if park_animal %>
+    <div>
+      <div class="toggle-container">
+        <ul class="nav-bb nav-pills-bb" id="pills-tab" role="tablist">
+          <li class="nav-item-bb" role="presentation">
+            <button class="nav-link-bb active-bb" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">My Sightings</button>
+          </li>
+          <li class="nav-item-bb" role="presentation">
+            <button class="nav-link-bb" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Leaderboard</button>
+          </li>
+        </ul>
+      </div>
+
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <% unless @game_player.points > 0 %>
+          <div class="no-sightings">
+            <h1>No Sightings Yet</h1>
+            <p>Click + button to add animals</p>
+          </div>
+        <% end %>
+        <div>
+          <div class="sightings-container">
+            <% @game.game_players.each do |game_player| %>
+              <% game_player.animals.each do |animal| %>
+                <% park_animal = ParkAnimal.find_by(animal_id: animal.id, park_id: @park.id) %>
+                <div class="spotted-animal-card">
+                  <%= image_tag animal.image %>
+                  <div class="animal-info">
+                    <h2><%= animal.name %></h2>
+                    <p>points: <span><%= animal.points %></span></p>
+                    <div class="link">
+                      <%= link_to "View", game_park_park_animal_path(@game, @park, park_animal) if park_animal %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+              <% end %>
             <% end %>
-          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
-      <div>
-        <div class="leaderboard-card">
-          <% @game.game_players.each do |game_player| %>
-            <div class="leaderboard-item">
-              <strong><p><%= game_player.user.name %></p></strong>
-
-              <p>Points: <%= game_player.points %></p>
-              <%= link_to "View Sightings" %>
-            </div>
-          <% end %>
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div>
+          <div class="leaderboard-card">
+            <% @game.game_players.each do |game_player| %>
+              <div class="leaderboard-item">
+                <strong><p><%= game_player.user.name %></p></strong>
+                <p>Points: <%= game_player.points %></p>
+                <%= link_to "View Sightings" %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<%= render partial: "partial/footer"%>
+  <%= render partial: "partial/footer"%>
 
-<div class="sighting-btn">
-  <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
+  <div class="sighting-btn">
+    <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
+  </div>
+
 </div>
