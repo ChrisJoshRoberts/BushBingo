@@ -61,6 +61,7 @@ gem "pg_search"
 gem "dotenv-rails"
 gem "cloudinary"
 gem "geocoder"
+gem "htmlbeautifier"
 
 
 group :development, :test do
