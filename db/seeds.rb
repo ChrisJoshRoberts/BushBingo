@@ -491,63 +491,63 @@ pangolin = Animal.create(
 #Creating the parks
 kruger = Park.create(
   name: "Kruger National Park",
-  location: "Skukuza, Kruger Natonal Park, South Africa",
+  location: "Limpopo, South Africa",
   description: "Kruger National Park is one of the largest game reserves in Africa. It covers an area of 19,485 square kilometres in the provinces of Limpopo and Mpumalanga in northeastern South Africa, and extends 360 kilometres from north to south and 65 kilometres from east to west. South Africa's first National Park containing significant numbers of all of the big 5 game species.",
   image: "kruger.png"
 )
 
 addo = Park.create(
   name: "Addo Elephant National Park",
-  location: "Addo Elephant National Park, Eastern Cape, South Africa",
+  location: "Eastern Cape, South Africa",
   description: "Addo Elephant National Park is a diverse wildlife conservation park situated close to Port Elizabeth in South Africa. It is home to the Big Seven (elephant, rhinoceros, lion, buffalo, leopard, whale, and great white shark).",
   image: "addo.png"
 )
 
 kgalagadi = Park.create(
   name: "Kgalagadi Transfrontier Park",
-  location: "Kgalagadi Transfrontier Park, Northern Cape, South Africa",
+  location: "Northern Cape, South Africa",
   description: "Kgalagadi Transfrontier Park is a vast wildlife preserve in the Kalahari Desert region of Botswana and South Africa, bordering Namibia to the west. It's characterized by red dunes and dry rivers. Wildlife includes migrating herds of wildebeest and springbok, plus predators like raptors and black-maned Kalahari lions.",
   image: "kgalagadi.png"
 )
 
 hluhluwe = Park.create(
   name: "Hluhluwe-iMfolozi Park",
-  location: "Hluhluwe-iMfolozi Park, KwaZulu-Natal, South Africa",
+  location: "KwaZulu-Natal, South Africa",
   description: "Hluhluwe-iMfolozi Park is the oldest proclaimed nature reserve in Africa. It is known for its rich wildlife and conservation efforts, particularly in the preservation of the white rhinoceros.",
   image: "hluhluwe.png"
 )
 
 tsitsikamma = Park.create(
   name: "Tsitsikamma National Park",
-  location: "Tsitsikamma National Park, Eastern Cape, South Africa",
+  location: "Eastern Cape, South Africa",
   description: "Tsitsikamma National Park is a protected area on the Garden Route in the Western and Eastern Cape provinces of South Africa. It is well-known for its indigenous forests, dramatic coastline, and marine reserve.",
   image: "tsitsikamma.png"
 )
 
 mapungubwe = Park.create(
   name: "Mapungubwe National Park",
-  location: "Mapungubwe National Park, Limpopo, South Africa",
+  location: "Limpopo, South Africa",
   description: "Mapungubwe National Park is located at the confluence of the Limpopo and Shashe Rivers in the Limpopo Province of South Africa. It is renowned for its cultural heritage, including the ancient Mapungubwe Kingdom and archaeological sites.",
   image: "mapungubwe.png"
 )
 
 marakele = Park.create(
   name: "Marakele National Park",
-  location: "Mapungubwe National Park, Limpopo, South Africa",
+  location: "Limpopo, South Africa",
   description: "Marakele National Park is a wildlife reserve in the Waterberg Mountains of South Africa's Limpopo Province. It is home to a variety of wildlife, including the Big Five, as well as bird species.",
   image: "marakele.png"
 )
 
 augrabies = Park.create(
   name: "Augrabies Falls National Park",
-  location: "Mapungubwe National Park, Northern Cape, South Africa",
+  location: "Northern Cape, South Africa",
   description: "Augrabies Falls National Park is located in the Northern Cape province of South Africa. It is named after the Augrabies Falls, which is a spectacular waterfall on the Orange River.",
   image: "augrabies.png"
 )
 
 golden_gate = Park.create(
   name: "Golden Gate Highlands National Park",
-  location: "Golden Gate Highlands National Park, Free State, South Africa",
+  location: "Free State, South Africa",
   description: "Golden Gate Highlands National Park is located in the Free State province of South Africa. It is known for its stunning sandstone formations, expansive grasslands, and rich biodiversity.",
   image: "golden_gate.png"
 )
