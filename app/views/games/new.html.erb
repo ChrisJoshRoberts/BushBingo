@@ -16,7 +16,7 @@
       <h1>Next step: Pick a Park<%= @game.name %></h1>
       <% @parks.each do |park| %>
         <label>
-          <div class="park-card">
+          <div class="park-card" data-action="change->form#show">
             <div>
               <div class="radio-btn">
                 <%= f.radio_button :park_id, park.id %>
@@ -29,7 +29,7 @@
         </label>
       <% end %>
       <%= f.hidden_field :status, value: "started" %>
-    <div class="button_container">
+    <div class="button_container hidden" data-form-target="buttons">
       <%= f.submit "Next", class: "btn-primary", style: "border: none" %>
       <%= link_to "Go to dashboard instead", games_path, class: "btn-secondary" %>
     </div>
