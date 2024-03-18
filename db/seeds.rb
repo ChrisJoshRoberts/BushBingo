@@ -491,7 +491,7 @@ pangolin = Animal.create(
 #Creating the parks
 kruger = Park.create(
   name: "Kruger National Park",
-  location: "Kruger Natonal Park, Limpopo,  South Africa",
+  location: "Skukuza, Kruger Natonal Park, South Africa",
   description: "Kruger National Park is one of the largest game reserves in Africa. It covers an area of 19,485 square kilometres in the provinces of Limpopo and Mpumalanga in northeastern South Africa, and extends 360 kilometres from north to south and 65 kilometres from east to west. South Africa's first National Park containing significant numbers of all of the big 5 game species.",
   image: "kruger.png"
 )

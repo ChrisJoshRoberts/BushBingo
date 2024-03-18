@@ -10,7 +10,7 @@ class Park < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  has_many :games
+  has_many :games, dependent: :destroy
   has_many :park_animals
   has_many :animals, through: :park_animals
 end
