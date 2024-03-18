@@ -34,7 +34,6 @@
 }
 .active {
   opacity: 1;
-  font-size: 1.5rem;
   font-weight: 600;
 }
 .nav-link-bb {
@@ -51,5 +50,6 @@
   }
 }
 .nav-link-bb.active {
+  font-size: 1.5rem;
   opacity: 1; /* Set full opacity for the active link */
 }
