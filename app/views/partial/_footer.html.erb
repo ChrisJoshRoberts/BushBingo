@@ -4,11 +4,13 @@
     <%= link_to root_path do %>
       <i class="fa-solid fa-house"></i>
     <% end %>
-    <%= link_to games_path(@game) do %>
+    <%= link_to games_path do %>
       <i class="fa-solid fa-play"></i>
     <% end %>
-    <%= link_to game_animals_path(@game) do %>
-      <i class="fa-solid fa-paw"></i>
+    <% unless @game.nil? || @game.id.nil? %>
+      <%= link_to game_animals_path(@game) do %>
+        <i class="fa-solid fa-paw"></i>
+      <% end %>
     <% end %>
 
   <% if user_signed_in? && current_user.photo.present? %>
