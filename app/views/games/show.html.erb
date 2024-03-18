@@ -1,7 +1,11 @@
 
 <div class="header">
       <div class="header-infos">
-        <p>Currently Playing</p>
+        <% if @game.status == 'ended' %>
+          <p>Game Ended</p>
+          <h2>WINNER: <%= @winner.user.name %></h2>
+        <% end %>
+          <p>Currently Playing</p>
         <h1><%= @game.name %></h1>
         <div class="user-game-info-container">
           <% if @user_gameplayer.avatar.present? %>
@@ -11,7 +15,6 @@
         </div>
         <h3 style="margin: 8px;"> points: <%= @game_player.points %></h3>
       </div>
-
   </div>
 
   <div>
@@ -55,13 +58,11 @@
       </div>
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
       <div>
         <div class="leaderboard-card">
-          <% @game.game_players.each do |game_player| %>
+          <% @game_players.each do |game_player| %>
             <div class="leaderboard-item">
               <strong><p><%= game_player.user.name %></p></strong>
-
               <p>Points: <%= game_player.points %></p>
               <%= link_to "View Sightings" %>
             </div>
@@ -71,8 +72,15 @@
     </div>
   </div>
 </div>
-<%= render partial: "partial/footer"%>
 
-<div class="sighting-btn">
-  <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
-</div>
+<% if @game.status == "started" %>
+  <div class="sighting-btn">
+    <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
+  </div>
+  <div class="end-btn">
+      <%= form_with url: game_path(@game), method: :patch do %>
+        <%= submit_tag "-", class: "end-btn" %>
+      <% end %>
+  </div>
+<% end %>
+<%= render partial: "partial/footer"%>
