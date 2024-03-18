@@ -3,13 +3,14 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
+    @game = current_user.game_players.last.game
   end
 
   def show
     @park = @game.park
     @user = current_user
     @game_player = GamePlayer.find_by(game: @game, user: @user)
-    @user_gameplayer = current_user.game_players.where(game: @game.id).first
+    @user_gameplayer = current_user.game_players.where(game: @game).first
   end
 
   def new

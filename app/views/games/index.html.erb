@@ -1,6 +1,20 @@
-<% @games.each do |game| %>
-  <%= link_to game.name, game_path(game)%>
-<% end %>
+ <h1>Your Profile</h1>
 
+ <div>
+
+</div>
+
+<div>
+  <% @games.each do |game| %>
+  <div>
+    <%= game.name%>
+    <%= game.status %>
+    <%= link_to "View", game_path(game)%>
+  </div>
+
+  <% end %>
+</div>
 <%= link_to "Parks", parks_index_path %>
 <%= link_to "Add new game", new_game_path %>
+
+<%= render "partial/footer", game: @game %>

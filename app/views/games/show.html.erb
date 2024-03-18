@@ -71,7 +71,7 @@
     </div>
   </div>
 </div>
-<%= render partial: "partial/footer"%>
+<%= render "partial/footer", game: @game %>
 
 <div class="sighting-btn">
   <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
