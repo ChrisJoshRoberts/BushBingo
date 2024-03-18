@@ -60,9 +60,9 @@
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <div>
         <div class="leaderboard-card">
-          <% @game_players.each do |game_player| %>
+          <% @game_players.each_with_index do |game_player, index| %>
             <div class="leaderboard-item">
-              <strong><p><%= game_player.user.name %></p></strong>
+              <strong><p><%= index + 1 %> - <%= game_player.user.name %></p></strong>
               <p>Points: <%= game_player.points %></p>
               <%= link_to "View Sightings" %>
             </div>
