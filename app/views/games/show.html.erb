@@ -11,7 +11,6 @@
         </div>
         <h3 style="margin: 8px;"> points: <%= @game_player.points %></h3>
       </div>
-
   </div>
 
   <div>
@@ -49,30 +48,3 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <% end %>
-          <% end %>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
-      <div>
-        <div class="leaderboard-card">
-          <% @game.game_players.each do |game_player| %>
-            <div class="leaderboard-item">
-              <strong><p><%= game_player.user.name %></p></strong>
-
-              <p>Points: <%= game_player.points %></p>
-              <%= link_to "View Sightings" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<%= render "partial/footer", game: @game %>
-
-<div class="sighting-btn">
-  <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
-</div>

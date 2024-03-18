@@ -11,3 +11,45 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-pills-bb {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0px 16px;
+}
+
+.nav-bb {
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  display: flex;
+  align-items: end;
+  list-style-type: none;
+}
+.toggle-container {
+  ul {
+    padding: 0px;
+  }
+}
+.active {
+  opacity: 1;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.nav-link-bb {
+  color: white;
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: 0.5s;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+}
+.nav-link-bb.active {
+  opacity: 1; /* Set full opacity for the active link */
+}

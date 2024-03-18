@@ -4,14 +4,10 @@
 
 
 .header{
-  display: flex;
-  background-color: white;
-  box-shadow: 0px 9px 10px -4px rgba(0, 0, 0, 0.1);
+  color: white;
   padding: 1.5rem;
   align-items: center;
-  justify-content: space-between;
-  justify-content: center;
-  align-items: center;
+
 
 
   p {
@@ -27,9 +23,40 @@
 
 .header-infos {
   display: flex;
-  flex-direction: column;
+
   align-items: center;
 }
 .user-game-info-container {
   display: flex;
+}
+.avatar {
+  width: 120px;
+}
+.info-titles {
+  h1 {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+  h3 {
+    display: flex;
+    padding: 0px 24px;
+    align-items: center;
+    justify-content: center;
+    border: 1px white solid;
+    color: white;
+    text-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 50px;
+  }
+  .points {
+    margin: 8px;
+    font-size: 1.8rem;
+  }
+}
+.sightings-container {
+  height: 32rem;
+  overflow: scroll;
 }

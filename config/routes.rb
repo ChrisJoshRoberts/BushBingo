@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   get 'parks/index'
 
-  resources :games, only: [:index, :show, :new, :create, :destroy] do
+  resources :games, only: [:index, :show, :new, :create, :destroy, :update] do
     resources :game_players do
       member do
-        patch :accept
+        post :accept
+        delete :decline
       end
     end
 

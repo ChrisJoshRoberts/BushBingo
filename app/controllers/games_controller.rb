@@ -2,15 +2,19 @@ class GamesController < ApplicationController
   before_action :set_game, only: %i[ show ]
 
   def index
-    @games = Game.all
     @game = current_user.game_players.last.game
+    @accepted_games = current_user.game_players.joins(:game).where(game_players: { status: "accepted" }).select("games.*")
+    @pending_games = current_user.game_players.joins(:game).where(game_players: { status: "pending" }).select("games.*")
   end
 
   def show
     @park = @game.park
     @user = current_user
     @game_player = GamePlayer.find_by(game: @game, user: @user)
-    @user_gameplayer = current_user.game_players.where(game: @game).first
+
+    @user_gameplayer = current_user.game_players.where(game: @game.id).first
+    @game_players = @game.game_players.order(points: :desc)
+    @winner = @game_players.first
   end
 
   def new
@@ -25,6 +29,12 @@ class GamesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    @game.update(status: "ended")
+    redirect_to game_path(@game)
   end
 
   private

@@ -79,3 +79,10 @@ label {
   align-items: center;
   bottom: 44px;
 }
+.hidden {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.dissolve {
+  opacity: 1;
+}
