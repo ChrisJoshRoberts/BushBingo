@@ -1,7 +1,32 @@
 .park-animal-container {
-  background-image: url("white_background_image.png");
   height: 100vh;
 }
 .spoor {
+  margin: 8px 0px;
   width: 40px;
+}
+.play-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FB5607;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 16px;
+
+  &:active {
+    background-color: #b13c05;
+  }
+
+  svg {
+    width: 24px;
+  }
+}
+.animal-header {
+  display: flex;
+  align-items: end;
+}
+.sound-container {
+  display: flex;
 }
