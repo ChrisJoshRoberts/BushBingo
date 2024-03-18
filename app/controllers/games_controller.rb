@@ -2,7 +2,15 @@ class GamesController < ApplicationController
   before_action :set_game, only: %i[ show ]
 
   def index
-    @games = Game.all
+    # @games = Game.all
+    # @accepted_games = @games.select do |game|
+    #   game.game_players.any? { |player| player.status == "accepted" }
+    # end
+    # @invited_games = @games.select do |game|
+    #   game.game_players.any? { |player| player.status == "pending" }
+    # end
+    @accepted_games = current_user.game_players.joins(:game).where(game_players: { status: "accepted" }).select("games.*")
+    @pending_games = current_user.game_players.joins(:game).where(game_players: { status: "pending" }).select("games.*")
   end
 
   def show
