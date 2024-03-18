@@ -1,17 +1,17 @@
 <div class="parks-container" data-controller="form">
   <%= simple_form_for(@game, html: { class: "input" }) do |f| %>
-  <div class="heading-parks" data-form-target="heading">
-    <div class="logo-container">
-      <%= image_tag('pango_logo.png',class: "logo-sml") %>
-      <div class="message">
-        <h2 style="color: #FB5607;">Awesome!</h2>
-        <h2>Let's start by naming your game!</h2>
+    <div class="heading-parks" data-form-target="heading">
+      <div class="logo-container">
+        <%= image_tag('pango_logo.png',class: "logo-sml") %>
+        <div class="message">
+          <h2 style="color: #FB5607;">Awesome!</h2>
+          <h2>Let's start by naming your game!</h2>
+        </div>
+      </div>
+      <div class="form-content">
+        <%= f.input :name, label: "Name your game below:",  input_html: { class: "input-form", placeholder: "Enter game name...", "data-form-target": "form"},label_html: { style: "display: none;"}%>
       </div>
     </div>
-    <div class="form-content">
-      <%= f.input :name, label: "Name your game below:",  input_html: { class: "input-form", placeholder: "Enter game name...", "data-form-target": "form"},label_html: { style: "display: none;"}%>
-    </div>
-  </div>
     <div class="parks-container-2 trans" data-form-target="parksContainer">
       <h1>Next step: Pick a Park<%= @game.name %></h1>
       <% @parks.each do |park| %>
@@ -29,13 +29,11 @@
         </label>
       <% end %>
       <%= f.hidden_field :status, value: "started" %>
-    <div class="button_container hidden" data-form-target="buttons">
-      <%= f.submit "Next", class: "btn-primary", style: "border: none" %>
-      <%= link_to "Go to dashboard instead", games_path, class: "btn-secondary" %>
-    </div>
+      <div class="button_container hidden" data-form-target="buttons">
+        <%= f.submit "Next", class: "btn-primary", style: "border: none" %>
+        <%= link_to "Go to dashboard instead", games_path, class: "btn-secondary" %>
+      </div>
     </div>
   <% end %>
-
   <%#= render "footer"  %>
-
 </div>

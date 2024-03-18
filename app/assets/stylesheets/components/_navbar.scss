@@ -32,9 +32,10 @@
     padding: 0px;
   }
 }
-.active-bb {
+.active {
   opacity: 1;
   font-size: 1.5rem;
+  font-weight: 600;
 }
 .nav-link-bb {
   color: white;
@@ -43,9 +44,12 @@
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  transition: 0.3s;
+  transition: 0.5s;
   opacity: 0.5;
   &:hover {
     opacity: 1;
   }
+}
+.nav-link-bb.active {
+  opacity: 1; /* Set full opacity for the active link */
 }
