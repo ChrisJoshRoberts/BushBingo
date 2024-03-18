@@ -1,12 +1,11 @@
 <% content_for :body_class, 'game-background' %>
 <div class="header">
-
-      <div class="winner-info">
-        <% if @game.status == 'ended' %>
-          <p>Game Ended</p>
-          <h2>WINNER: <%= @winner.user.name %></h2>
-        <% end %>
-      </div>
+  <div class="winner-info">
+    <% if @game.status == 'ended' %>
+      <p>Game Ended</p>
+      <h2>WINNER: <%= @winner.user.name %></h2>
+    <% end %>
+  </div>
   <div class="header-infos">
     <div class="user-game-info-container">
       <% if @user_gameplayer.avatar.present? %>
@@ -17,7 +16,6 @@
       <h1><%= @game.name %></h1>
       <h2><%= @user.name %></h2>
       <h3> Total points: <span class="points"><%= @game_player.points %></span></h3>
-
     </div>
   </div>
 </div>
@@ -49,7 +47,7 @@
               <h2><%= animal.name %></h2>
               <p>points: <span><%= animal.points %></span></p>
               <div class="link">
-                <%= link_to "View", game_park_park_animal_path(@game, @park, park_animal) if park_animal %>
+                <%= link_to "View", game_park_park_animal_path(@game, @park, park_animal), class: "view-link" if park_animal %>
               </div>
             </div>
           </div>
@@ -57,14 +55,15 @@
       </div>
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
       <div>
         <div class="leaderboard-card">
           <% @game_players.each do |game_player| %>
             <div class="leaderboard-item">
-              <strong><p><%= game_player.user.name %></p></strong>
+              <strong>
+                <p><%= game_player.user.name %></p>
+              </strong>
               <p>Points: <%= game_player.points %></p>
-              <%= link_to "View Sightings" %>
+              <%= link_to "View Sightings", id: "view-sightings" %>
             </div>
           <% end %>
         </div>
@@ -72,16 +71,14 @@
     </div>
   </div>
 </div>
-
 <% if @game.status == "started" %>
   <div class="sighting-btn">
     <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
   </div>
   <div class="end-btn">
-      <%= form_with url: game_path(@game), method: :patch do %>
-        <%= submit_tag "-", class: "end-btn" %>
-      <% end %>
+    <%= form_with url: game_path(@game), method: :patch do %>
+      <%= submit_tag "-", class: "end-btn" %>
+    <% end %>
   </div>
 <% end %>
 <%= render partial: "partial/footer"%>
-
