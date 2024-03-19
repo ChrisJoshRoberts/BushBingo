@@ -18,7 +18,16 @@
     width: 60%;
     text-align: left;
 
-
+    h2{
+      font-weight: bolder;
+    }
+    p{
+      background-color: #FB5607;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      width: fit-content;
+    }
   }
   img{
     position: absolute;
