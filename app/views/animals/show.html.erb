@@ -1,0 +1,14 @@
+<div class="park-animal-container">
+  <%= link_to image_tag("back_arrow.png"), game_path(@game) %>
+
+  <%= image_tag @animal.image %>
+  <div class="animal-deader">
+    <%= image_tag @animal.spoor, class: "spoor" %>
+    <h2><%= @animal.name %></h2>
+    <p>Points: <%= @animal.points %></p>
+    <audio controls src="/<%= @animal.sound %>">
+    </audio>
+  </div>
+</div>
+
+<%= render "partial/footer", game: @game %>

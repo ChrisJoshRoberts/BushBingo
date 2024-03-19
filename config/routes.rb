@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'parks/index'
 
-  resources :games, only: [:index, :show, :new, :create, :destroy] do
+  resources :games, only: [:index, :show, :new, :create, :destroy, :update] do
     resources :game_players do
       member do
         post :accept
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :animals, only: [:show]
+  resources :animals, only: [:index, :show]
   resources :parks, only: [:show]
 
   root to: "pages#landing"
