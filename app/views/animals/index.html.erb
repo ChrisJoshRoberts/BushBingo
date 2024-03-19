@@ -1,0 +1,16 @@
+<div>
+  <h1>All Animals</h1>
+</div>
+
+<% @animals.each do |animal| %>
+  <div class="animal-card">
+    <%= image_tag(animal.image) %>
+    <div class="game-info">
+      <%= link_to animal.name, animal_path(animal) %>
+      <p>points: <%= animal.points %></p>
+    </div>
+
+  </div>
+<% end %>
+
+<%= render "partial/footer", game: @game %>

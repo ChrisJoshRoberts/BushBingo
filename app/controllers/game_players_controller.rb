@@ -14,7 +14,10 @@ class GamePlayersController < ApplicationController
   end
 
   def create
-    @game_player = GamePlayer.new(game_player_params)
+    @game_player = GamePlayer.new(game_id: game_player_params[:game_id],
+                                  user_id: game_player_params[:user_id],
+                                  points: 0,
+                                  status: "pending")
     if @game_player.save
       redirect_to edit_game_game_player_path(@game_player.game, @game_player) if @game_player.user_id == current_user.id
     else
@@ -54,6 +57,21 @@ class GamePlayersController < ApplicationController
     @game_player = GamePlayer.find(params[:id])
     @game_player.destroy
     redirect_to game_game_players_path
+  end
+
+
+  def accept
+    @game_player = GamePlayer.find(params[:id])
+    @game_player.update(status: "accepted")
+    redirect_to game_path(@game_player.game), notice: "Game invitation accepted!"
+    # redirect_to game_game_players_path
+  end
+
+  def decline
+    @game_player = GamePlayer.find(params[:id])
+    @game_player.destroy
+    redirect_to game_path(@game_player.game), notice: "Game invitation declined."
+    # redirect_to game_game_players_path
   end
 
   private

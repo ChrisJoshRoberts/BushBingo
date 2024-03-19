@@ -1,12 +1,6 @@
+
 <% content_for :body_class, 'game-background oflow' %>
 <div class="header">
-
-      <div class="winner-info">
-        <% if @game.status == 'ended' %>
-          <p>Game Ended</p>
-          <h2>WINNER: <%= @winner.user.name %></h2>
-        <% end %>
-      </div>
   <div class="header-infos">
     <div class="user-game-info-container">
       <% if @user_gameplayer.avatar.present? %>
@@ -17,7 +11,6 @@
       <h1><%= @game.name %></h1>
       <h2><%= @user.name %></h2>
       <h3> Total points: <span class="points"><%= @game_player.points %></span></h3>
-
     </div>
   </div>
 </div>
