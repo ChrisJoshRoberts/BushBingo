@@ -559,4 +559,131 @@ kruger_animals = all_animals.each do |animal|
   park_id: kruger.id
 )
 end
+
+mapungubwe_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+  animal_id: animal.id,
+  park_id: mapungubwe.id
+)
+end
+
+
+addo_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: addo.id
+  )
+end
+
+kgalagadi_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: kgalagadi.id
+  )
+end
+
+hluhluwe_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: hluhluwe.id
+  )
+end
+
+tsitsikamma_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: tsitsikamma.id
+  )
+end
+
+marakele_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: marakele.id
+  )
+end
+
+augrabies_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: augrabies.id
+  )
+end
+
+golden_gate_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: golden_gate.id
+  )
+end
+
+User.create!(
+  email: "caspersikosana@gmail.com",
+  password: "password",
+  name: "Sikosana",
+  image: "/app/assets/images/user_images/cas.jpg"
+)
+
+User.create!(
+  email: "tafamiri@gmail.com",
+  password: "password",
+  name: "Miry",
+  image: "/app/assets/images/user_images/miry.jpg"
+)
+
+
+User.create!(
+  email: "shumirai@gmail.com",
+  password: "password",
+  name: "Shumy",
+  image: "/app/assets/images/user_images/shumi.jpg"
+)
+
+User.create!(
+  email: "alvinsalters@gmail.com",
+  password: "password",
+  name: "AlvinS",
+  image: "/app/assets/images/user_images/alvin-mahmudov-vKuEhorbvYI-unsplash.jpg"
+)
+
+User.create!(
+  email: "timothyburner@gmail.com",
+  password: "password",
+  name: "Timmyturner",
+  image: "/app/assets/images/user_images/tim-bish-fJ8XR7gIDGo-unsplash.jpg"
+)
+User.create!(
+  email: "munashemusabayane@gmail.com",
+  password: "password",
+  name: "Munted09",
+  image: "/app/assets/images/user_images/munted.jpg"
+)
+
+User.create!(
+  email: "tracyevans@gmail.com",
+  password: "password",
+  name: "tracylions",
+  image: "/app/assets/images/user_images/istockphoto-1472310103-1024x1024.jpg"
+)
+
+User.create!(
+  email: "taylorswift@gmail.com",
+  password: "password",
+  name: "theOGtaylor",
+  image: "/app/assets/images/user_images/taylor.jpeg"
+)
+
+User.create!(
+  email: "belovedanopa@gmail.com",
+  password: "password",
+  name: "masterbee",
+  image: "/app/assets/images/user_images/bee.jpg"
+)
+
+User.create!(
+  email: "anesuz@gmail.com",
+  password: "password",
+  name: "gamer202",
+  image: "/app/assets/images/user_images/ane.jpg"
+)
 puts "Seeding completed."

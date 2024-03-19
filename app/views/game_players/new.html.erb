@@ -11,7 +11,7 @@
     <% end %>
   </div>
 </div>
-
+<!--Hello im here-->
     <% @users.each do |user| %>
       <% unless user.id == current_user.id %>
         <div class="flexbox" data-controller="toggle">
@@ -35,6 +35,7 @@
     <% end %>
 
   <%= simple_form_for([ @game, @game_player ]) do |f| %>
+  <!--this is the wrong form-->
       <%= f.hidden_field :game_id, value: @game.id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :points, value: 0 %>
