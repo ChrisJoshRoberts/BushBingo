@@ -38,14 +38,12 @@ class GamesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
-    # Only allow a list of trusted parameters through.
-    def game_params
-      params.require(:game).permit(:name, :status, :park_id)
-    end
+  def game_params
+    params.require(:game).permit(:name, :status, :park_id)
+  end
 
-    def set_game
-      @game = Game.find(params[:id])
-    end
+  def set_game
+    @game = Game.find(params[:id])
+  end
 end

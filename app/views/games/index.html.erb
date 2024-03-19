@@ -17,9 +17,9 @@
     <ul>
       <% @accepted_games.each do |game| %>
         <div>
-         <%= game.name%>
-         <%= game.status %>
-         <%= link_to "View", game_path(game)%>
+        <%= game.name%>
+        <%= game.status %>
+        <%= link_to "View", game_path(game)%>
         </div>
       <% end %>
     </ul>
@@ -39,8 +39,7 @@
   </div>
   <%= link_to "Parks", parks_index_path %>
  <%= link_to "Add new game", new_game_path %>
-  
+
   <%= render "partial/footer", game: @game %>
 
 </div>
-
