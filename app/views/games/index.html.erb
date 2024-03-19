@@ -13,7 +13,6 @@
  <div id="user_details1">
     <p><%= current_user.name%></p>
     <p><%= current_user.email%></p>
-    <!--game_count-->
     <p>Game count:4</p>
  </div>
 </div>
@@ -49,15 +48,9 @@
     <h2>Pending Games</h2>
       <% @pending_games.each do |game| %>
         <%= render 'games/partials/game-card', game: game %>
-
- <!--       <li>-->
-          <%#= game.name %>
-          <%#= game.status %>
-          <%#= link_to "Accept",root_path, method: :post, class: "btn btn-success" %>
-          <%#= link_to "Decline", root_path, method: :delete, class: "btn btn-danger" %>
-<!--        </li>-->
       <% end %>
   </div>
+
   <%= link_to "Parks", parks_index_path %>
  <%= link_to "Add new game", new_game_path %>
 

@@ -48,9 +48,9 @@ class GamePlayersController < ApplicationController
 
   def accept
     @game_player = GamePlayer.find(params[:id])
-    @game_player.status = "accepted"
+    @game_player.update(status = "accepted")
     @game_player.save
-    redirect_to game_game_players_path
+    redirect_to game_game_players_path, notice: 'Game player accepted successfully.'
   end
 
   def destroy
@@ -60,11 +60,19 @@ class GamePlayersController < ApplicationController
   end
 
 
-  def accept
-    @game_player = GamePlayer.find(params[:id])
-    @game_player.update(status: "accepted")
-    redirect_to game_path(@game_player.game), notice: "Game invitation accepted!"
-    # redirect_to game_game_players_path
+  def accept_game
+    game_player = GamePlayer.find_by(game_id: params[:id], user_id: current_user)
+    game_player.update(status: "accepted")
+    game_player.save
+    redirect_to games_path, notice: 'Game player accepted successfully.'
+  end
+
+  def decline_game
+    game_player = GamePlayer.find_by(game_id: params[:id], user_id: current_user)
+    game_player.update(status: "declined")
+    game_player.save
+    redirect_to games_path, notice: 'Game rejected successfully.'
+
   end
 
   def decline
