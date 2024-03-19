@@ -57,10 +57,12 @@
   }
 }
 .sightings-container {
-  height: 32rem;
+  height: 50rem;
   overflow: scroll;
 }
-
 .oflow {
   overflow: hidden;
+}
+.feather {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 1) 100%);
 }

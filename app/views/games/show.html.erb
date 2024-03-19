@@ -1,10 +1,15 @@
-
 <% content_for :body_class, 'game-background oflow' %>
 <div class="header">
+  <div class="winner-info">
+    <% if @game.status == 'ended' %>
+      <p>Game Ended</p>
+      <h2>WINNER: <%= @winner.user.name %></h2>
+    <% end %>
+  </div>
   <div class="header-infos">
     <div class="user-game-info-container">
       <% if @user_gameplayer.avatar.present? %>
-        <%= image_tag @user_gameplayer.avatar, class: "avatar-animal" %>
+        <%= image_tag @user_gameplayer.avatar, class: "avatar" %>
       <% end %>
     </div>
     <div class="info-titles">
@@ -14,7 +19,6 @@
     </div>
   </div>
 </div>
-<div>
   <div class="toggle-container">
     <ul class="nav-bb nav-pills-bb" id="pills-tab" role="tablist">
       <li class="nav-item-bb" role="presentation">
@@ -77,3 +81,4 @@
 </div>
 
 <%= render partial: "partial/footer"%>
+

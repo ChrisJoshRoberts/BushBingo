@@ -24,7 +24,7 @@
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   display: flex;
-  align-items: end;
+  align-items: center;
   list-style-type: none;
 }
 .toggle-container {
@@ -52,4 +52,5 @@
 .nav-link-bb.active {
   font-size: 1.5rem;
   opacity: 1; /* Set full opacity for the active link */
+  font-size: 1.5rem;
 }
