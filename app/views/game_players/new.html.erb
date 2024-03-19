@@ -14,19 +14,21 @@
 <!--Hello im here-->
     <% @users.each do |user| %>
       <% unless user.id == current_user.id %>
-        <div class="flexbox">
-
+        <div class="flexbox" data-controller="toggle">
           <% if user.photo.present? %>
             <%= cl_image_tag(user.photo.key, class: "avatar") %>
           <% end %>
           <% if user.name.present? %>
             <p class="name"><%= user.name %></p>
-            <%= simple_form_for([ @game, @game_player ]) do |f| %>
-            <!--im in the form-->
-              <%= f.hidden_field :game_id, value: @game.id %>
-              <%= f.hidden_field :user_id, value: user.id %>
-              <%= f.submit "+", class: "add_btn" %>
-            <% end %>
+            <div data-toggle-target="invite">
+              <%= simple_form_for([ @game, @game_player ]) do |f| %>
+                <%= f.hidden_field :game_id, value: @game.id %>
+                <%= f.hidden_field :user_id, value: user.id %>
+                <%= f.hidden_field :points, value: 0 %>
+                <%= f.hidden_field :status, value: "pending" %>
+                <%= f.submit "+", class: "add_btn", data: { action: "click->toggle#invited" } %>
+              <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
