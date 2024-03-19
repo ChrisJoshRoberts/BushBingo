@@ -20,13 +20,13 @@
           <% end %>
           <% if user.name.present? %>
             <p class="name"><%= user.name %></p>
-            <div data-toggle-target="invite" data-action="click->toggle#invited">
+            <div data-toggle-target="invite">
               <%= simple_form_for([ @game, @game_player ]) do |f| %>
                 <%= f.hidden_field :game_id, value: @game.id %>
                 <%= f.hidden_field :user_id, value: user.id %>
                 <%= f.hidden_field :points, value: 0 %>
                 <%= f.hidden_field :status, value: "pending" %>
-                <%= f.submit "+", class: "add_btn" %>
+                <%= f.submit "+", class: "add_btn", data: { action: "click->toggle#invited" } %>
               <% end %>
             </div>
           <% end %>
