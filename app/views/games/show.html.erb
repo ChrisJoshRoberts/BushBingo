@@ -1,16 +1,16 @@
-
-<div class="header">
-      <div class="header-infos">
-        <p>Currently Playing</p>
-        <h1><%= @game.name %></h1>
-        <div class="user-game-info-container">
-          <% if @user_gameplayer.avatar.present? %>
-            <%= image_tag @user_gameplayer.avatar, class: "avatar" %>
-          <% end %>
-          <h2 style="margin: 8px;"><%= @user.name %></h2>
-        </div>
-        <h3 style="margin: 8px;"> points: <%= @game_player.points %></h3>
+<div>
+  <div class="header">
+    <div class="header-infos">
+      <p>Currently Playing</p>
+      <h1><%= @game.name %></h1>
+      <div class="user-game-info-container">
+        <% if @user_gameplayer.avatar.present? %>
+          <%= image_tag @user_gameplayer.avatar, class: "avatar" %>
+        <% end %>
+        <h2 style="margin: 8px;"><%= @user.name %></h2>
       </div>
+      <h3 style="margin: 8px;"> points: <%= @game_player.points %></h3>
+    </div>
   </div>
 
   <div>
@@ -25,26 +25,35 @@
       </ul>
     </div>
 
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <% unless @game_player.points > 0 %>
-        <div class="no-sightings">
-          <h1>No Sightings Yet</h1>
-          <p>Click + button to add animals</p>
-        </div>
-      <% end %>
-      <div>
-        <div class="sightings-container">
-          <% @game.game_players.each do |game_player| %>
-            <% game_player.animals.each do |animal| %>
-              <% park_animal = ParkAnimal.find_by(animal_id: animal.id, park_id: @park.id) %>
-              <div class="spotted-animal-card">
-                <%= image_tag animal.image %>
-                <div class="animal-info">
-                  <h2><%= animal.name %></h2>
-                  <p>points: <span><%= animal.points %></span></p>
-                  <div class="link">
-                    <%= link_to "View", game_park_park_animal_path(@game, @park, park_animal) if park_animal %>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <% unless @game_player.points > 0 %>
+          <div class="no-sightings">
+            <h1>No Sightings Yet</h1>
+            <p>Click + button to add animals</p>
+          </div>
+        <% end %>
+
+        <div>
+          <div class="sightings-container">
+            <% @game.game_players.each do |game_player| %>
+              <% game_player.animals.each do |animal| %>
+                <% park_animal = ParkAnimal.find_by(animal_id: animal.id, park_id: @park.id) %>
+                <div class="spotted-animal-card">
+                  <%= image_tag animal.image %>
+                  <div class="animal-info">
+                    <h2><%= animal.name %></h2>
+                    <p>points: <span><%= animal.points %></span></p>
+                    <div class="link">
+                      <%= link_to "View", game_park_park_animal_path(@game, @park, park_animal) if park_animal %>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
+            <% end %> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
