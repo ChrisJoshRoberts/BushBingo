@@ -1,4 +1,4 @@
-<% content_for :body_class, 'game-background' %>
+<% content_for :body_class, 'game-background oflow' %>
 <div class="header">
 
       <div class="winner-info">
@@ -32,7 +32,7 @@
       </li>
     </ul>
   </div>
-  <div class="tab-content" id="pills-tabContent">
+  <div class="tab-content" id="pills-tabContent" data-controller="buttons">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
       <% unless @game_player.points > 0 %>
         <div class="no-sightings">
@@ -40,7 +40,7 @@
           <p>Click + button to add animals</p>
         </div>
       <% end %>
-      <div class="sightings-container">
+      <div class="sightings-container" data-buttons-target="sightings" >
         <% @game_player.animals.each do |animal| %>
           <% park_animal = ParkAnimal.find_by(animal_id: animal.id, park_id: @park.id) %>
           <div class="spotted-animal-card">
@@ -70,17 +70,17 @@
         </div>
       </div>
     </div>
+        <% if @game.status == "started" %>
+          <div class="sighting-btn" data-buttons-target="hideable1">
+            <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
+          </div>
+          <div class="end-btn" data-buttons-target="hideable2">
+              <%= form_with url: game_path(@game), method: :patch do %>
+                <%= submit_tag "-", class: "end-btn" %>
+              <% end %>
+          </div>
+        <% end %>
   </div>
 </div>
 
-<% if @game.status == "started" %>
-  <div class="sighting-btn">
-    <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
-  </div>
-  <div class="end-btn">
-      <%= form_with url: game_path(@game), method: :patch do %>
-        <%= submit_tag "-", class: "end-btn" %>
-      <% end %>
-  </div>
-<% end %>
 <%= render partial: "partial/footer"%>
