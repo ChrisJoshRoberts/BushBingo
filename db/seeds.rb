@@ -491,63 +491,63 @@ pangolin = Animal.create(
 #Creating the parks
 kruger = Park.create(
   name: "Kruger National Park",
-  location: "Skukuza, Kruger Natonal Park, South Africa",
+  location: "Limpopo, South Africa",
   description: "Kruger National Park is one of the largest game reserves in Africa. It covers an area of 19,485 square kilometres in the provinces of Limpopo and Mpumalanga in northeastern South Africa, and extends 360 kilometres from north to south and 65 kilometres from east to west. South Africa's first National Park containing significant numbers of all of the big 5 game species.",
   image: "kruger.png"
 )
 
 addo = Park.create(
   name: "Addo Elephant National Park",
-  location: "Addo Elephant National Park, Eastern Cape, South Africa",
+  location: "Eastern Cape, South Africa",
   description: "Addo Elephant National Park is a diverse wildlife conservation park situated close to Port Elizabeth in South Africa. It is home to the Big Seven (elephant, rhinoceros, lion, buffalo, leopard, whale, and great white shark).",
   image: "addo.png"
 )
 
 kgalagadi = Park.create(
   name: "Kgalagadi Transfrontier Park",
-  location: "Kgalagadi Transfrontier Park, Northern Cape, South Africa",
+  location: "Northern Cape, South Africa",
   description: "Kgalagadi Transfrontier Park is a vast wildlife preserve in the Kalahari Desert region of Botswana and South Africa, bordering Namibia to the west. It's characterized by red dunes and dry rivers. Wildlife includes migrating herds of wildebeest and springbok, plus predators like raptors and black-maned Kalahari lions.",
   image: "kgalagadi.png"
 )
 
 hluhluwe = Park.create(
   name: "Hluhluwe-iMfolozi Park",
-  location: "Hluhluwe-iMfolozi Park, KwaZulu-Natal, South Africa",
+  location: "KwaZulu-Natal, South Africa",
   description: "Hluhluwe-iMfolozi Park is the oldest proclaimed nature reserve in Africa. It is known for its rich wildlife and conservation efforts, particularly in the preservation of the white rhinoceros.",
   image: "hluhluwe.png"
 )
 
 tsitsikamma = Park.create(
   name: "Tsitsikamma National Park",
-  location: "Tsitsikamma National Park, Eastern Cape, South Africa",
+  location: "Eastern Cape, South Africa",
   description: "Tsitsikamma National Park is a protected area on the Garden Route in the Western and Eastern Cape provinces of South Africa. It is well-known for its indigenous forests, dramatic coastline, and marine reserve.",
   image: "tsitsikamma.png"
 )
 
 mapungubwe = Park.create(
   name: "Mapungubwe National Park",
-  location: "Mapungubwe National Park, Limpopo, South Africa",
+  location: "Limpopo, South Africa",
   description: "Mapungubwe National Park is located at the confluence of the Limpopo and Shashe Rivers in the Limpopo Province of South Africa. It is renowned for its cultural heritage, including the ancient Mapungubwe Kingdom and archaeological sites.",
   image: "mapungubwe.png"
 )
 
 marakele = Park.create(
   name: "Marakele National Park",
-  location: "Mapungubwe National Park, Limpopo, South Africa",
+  location: "Limpopo, South Africa",
   description: "Marakele National Park is a wildlife reserve in the Waterberg Mountains of South Africa's Limpopo Province. It is home to a variety of wildlife, including the Big Five, as well as bird species.",
   image: "marakele.png"
 )
 
 augrabies = Park.create(
   name: "Augrabies Falls National Park",
-  location: "Mapungubwe National Park, Northern Cape, South Africa",
+  location: "Northern Cape, South Africa",
   description: "Augrabies Falls National Park is located in the Northern Cape province of South Africa. It is named after the Augrabies Falls, which is a spectacular waterfall on the Orange River.",
   image: "augrabies.png"
 )
 
 golden_gate = Park.create(
   name: "Golden Gate Highlands National Park",
-  location: "Golden Gate Highlands National Park, Free State, South Africa",
+  location: "Free State, South Africa",
   description: "Golden Gate Highlands National Park is located in the Free State province of South Africa. It is known for its stunning sandstone formations, expansive grasslands, and rich biodiversity.",
   image: "golden_gate.png"
 )
@@ -559,4 +559,131 @@ kruger_animals = all_animals.each do |animal|
   park_id: kruger.id
 )
 end
+
+mapungubwe_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+  animal_id: animal.id,
+  park_id: mapungubwe.id
+)
+end
+
+
+addo_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: addo.id
+  )
+end
+
+kgalagadi_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: kgalagadi.id
+  )
+end
+
+hluhluwe_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: hluhluwe.id
+  )
+end
+
+tsitsikamma_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: tsitsikamma.id
+  )
+end
+
+marakele_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: marakele.id
+  )
+end
+
+augrabies_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: augrabies.id
+  )
+end
+
+golden_gate_animals = all_animals.each do |animal|
+  ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: golden_gate.id
+  )
+end
+
+User.create!(
+  email: "caspersikosana@gmail.com",
+  password: "password",
+  name: "Sikosana",
+  image: "/app/assets/images/user_images/cas.jpg"
+)
+
+User.create!(
+  email: "tafamiri@gmail.com",
+  password: "password",
+  name: "Miry",
+  image: "/app/assets/images/user_images/miry.jpg"
+)
+
+
+User.create!(
+  email: "shumirai@gmail.com",
+  password: "password",
+  name: "Shumy",
+  image: "/app/assets/images/user_images/shumi.jpg"
+)
+
+User.create!(
+  email: "alvinsalters@gmail.com",
+  password: "password",
+  name: "AlvinS",
+  image: "/app/assets/images/user_images/alvin-mahmudov-vKuEhorbvYI-unsplash.jpg"
+)
+
+User.create!(
+  email: "timothyburner@gmail.com",
+  password: "password",
+  name: "Timmyturner",
+  image: "/app/assets/images/user_images/tim-bish-fJ8XR7gIDGo-unsplash.jpg"
+)
+User.create!(
+  email: "munashemusabayane@gmail.com",
+  password: "password",
+  name: "Munted09",
+  image: "/app/assets/images/user_images/munted.jpg"
+)
+
+User.create!(
+  email: "tracyevans@gmail.com",
+  password: "password",
+  name: "tracylions",
+  image: "/app/assets/images/user_images/istockphoto-1472310103-1024x1024.jpg"
+)
+
+User.create!(
+  email: "taylorswift@gmail.com",
+  password: "password",
+  name: "theOGtaylor",
+  image: "/app/assets/images/user_images/taylor.jpeg"
+)
+
+User.create!(
+  email: "belovedanopa@gmail.com",
+  password: "password",
+  name: "masterbee",
+  image: "/app/assets/images/user_images/bee.jpg"
+)
+
+User.create!(
+  email: "anesuz@gmail.com",
+  password: "password",
+  name: "gamer202",
+  image: "/app/assets/images/user_images/ane.jpg"
+)
 puts "Seeding completed."
