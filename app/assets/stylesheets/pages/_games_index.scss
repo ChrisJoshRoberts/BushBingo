@@ -1,0 +1,34 @@
+.upper{
+  display:flex;
+  justify-content:left;
+  width: 100%;
+  height:auto;
+  background: white;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+
+  #user_details1{
+    height:auto;
+
+  p{
+    font-weight: bold;
+  }
+
+  }
+}
+
+.profile_img{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.games_container1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:80%;
+  margin: 0 auto;
+}
