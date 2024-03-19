@@ -1,9 +1,8 @@
-
+<% content_for :body_class, 'game-background' %>
 <div>
   <h1><%= @park.name %> Animals</h1>
   <%= link_to "cancel", game_path(@game) %>
 </div>
-
 <% @park_animals.each do |park_animal| %>
   <div class="animal-card">
     <%= image_tag(park_animal.animal.image) %>
@@ -11,17 +10,13 @@
       <%= link_to park_animal.animal.name, game_park_park_animal_path(@game.id, @park.id, park_animal) %>
       <p>points: <%= park_animal.animal.points %></p>
     </div>
-      <%= simple_form_for([@game, park_animal.animal, @spotted_animal]) do |f| %>
+    <%= simple_form_for([@game, park_animal.animal, @spotted_animal]) do |f| %>
       <button type="submit">
         <%= image_tag("add.png") %>
       </button>
     <% end %>
   </div>
-<%# @park_animals.each do |park_animal| %>
-  <%#= link_to park_animal.animal.name, game_park_park_animal_path(@game.id, @park.id, park_animal) %>
-<% end %>
-
-
-
-
-<%#= render partial: "partial/footer"%>
+  <%# @park_animals.each do |park_animal| %>
+    <%#= link_to park_animal.animal.name, game_park_park_animal_path(@game.id, @park.id, park_animal) %>
+  <% end %>
+  <%#= render partial: "partial/footer"%>
