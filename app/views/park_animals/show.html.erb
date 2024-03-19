@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-<div class="park-animal-container">
-  <%= link_to image_tag("back_arrow.png"), game_path(@game) %>
-  <div class="animal-header">
-    <%= image_tag @park_animal.animal.image %>
-    <div class="animal-right">
-      <div class="animal-details">
-        <%= image_tag @park_animal.animal.spoor, class: "spoor" %>
-        <h2><%= @park_animal.animal.name %></h2>
-        <p>Points: <%= @park_animal.animal.points %></p>
-      </div>
-      <audio controls class="custom-audio" src="/<%= @park_animal.animal.sound %>">
-      </audio>
-=======
 <div class="park-animal-container" data-controller="park-animal">
   <%= link_to image_tag("back_arrow.png"), game_path(@game), class: "back-arrow" %>
   <div class="animal-header">
@@ -74,7 +60,6 @@
           <%= image_tag photo %>
         </div>
       <% end %>
->>>>>>> deaba94ec1347deb4896d6783d8f58a6fab169b8
     </div>
   </div>
 </div>

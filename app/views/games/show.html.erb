@@ -1,11 +1,5 @@
-<% content_for :body_class, 'game-background oflow' %>
+<% content_for :body_class, 'game-background' %>
 <div class="header">
-  <div class="winner-info">
-    <% if @game.status == 'ended' %>
-      <p>Game Ended</p>
-      <h2>WINNER: <%= @winner.user.name %></h2>
-    <% end %>
-  </div>
   <div class="header-infos">
     <div class="user-game-info-container">
       <% if @user_gameplayer.avatar.present? %>
@@ -19,6 +13,7 @@
     </div>
   </div>
 </div>
+<div>
   <div class="toggle-container">
     <ul class="nav-bb nav-pills-bb" id="pills-tab" role="tablist">
       <li class="nav-item-bb" role="presentation">
@@ -29,7 +24,7 @@
       </li>
     </ul>
   </div>
-  <div class="tab-content" id="pills-tabContent" data-controller="buttons">
+  <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
       <% unless @game_player.points > 0 %>
         <div class="no-sightings">
@@ -37,7 +32,7 @@
           <p>Click + button to add animals</p>
         </div>
       <% end %>
-      <div class="sightings-container" data-buttons-target="sightings" >
+      <div class="sightings-container">
         <% @game_player.animals.each do |animal| %>
           <% park_animal = ParkAnimal.find_by(animal_id: animal.id, park_id: @park.id) %>
           <div class="spotted-animal-card">
@@ -54,31 +49,21 @@
       </div>
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
-      <div>
-        <div class="leaderboard-card">
-          <% @game_players.each_with_index do |game_player, index| %>
-            <div class="leaderboard-item">
-              <strong><p><%= index + 1 %> - <%= game_player.user.name %></p></strong>
-              <p>Points: <%= game_player.points %></p>
-              <%= link_to "View Sightings" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-        <% if @game.status == "started" %>
-          <div class="sighting-btn" data-buttons-target="hideable1">
-            <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
-          </div>
-          <div class="end-btn" data-buttons-target="hideable2">
-              <%= form_with url: game_path(@game), method: :patch do %>
-                <%= submit_tag "-", class: "end-btn" %>
-              <% end %>
+      <div class="leaderboard-card">
+        <% @game.game_players.each do |game_player| %>
+          <div class="leaderboard-item">
+            <strong>
+              <p><%= game_player.user.name %></p>
+            </strong>
+            <p>Points: <%= game_player.points %></p>
+            <%= link_to "View Sightings" %>
           </div>
         <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
 <%= render partial: "partial/footer"%>
-
+<div class="sighting-btn">
+  <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
+</div>
