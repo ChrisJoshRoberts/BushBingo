@@ -16,7 +16,9 @@
     <ul>
       <% @accepted_games.each do |game| %>
         <li>
-          <%= link_to game.name, game_path(game) %>
+          <%= game.name%>
+          <%= game.status %>
+          <%= link_to "View", game_path(game)%>
         </li>
       <% end %>
     </ul>
@@ -26,7 +28,9 @@
     <ul>
       <% @pending_games.each do |game| %>
         <li>
-          <%= link_to game.name, game_path(game) %>
+          <%= game.name%>
+          <%= game.status %>
+          <%= link_to "View", game_path(game)%>
           <%= link_to "Accept",root_path, method: :post, class: "btn btn-success" %>
           <%= link_to "Decline", root_path, method: :delete, class: "btn btn-danger" %>
         </li>

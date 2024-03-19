@@ -2,13 +2,6 @@ class GamesController < ApplicationController
   before_action :set_game, only: %i[ show ]
 
   def index
-    # @games = Game.all
-    # @accepted_games = @games.select do |game|
-    #   game.game_players.any? { |player| player.status == "accepted" }
-    # end
-    # @invited_games = @games.select do |game|
-    #   game.game_players.any? { |player| player.status == "pending" }
-    # end
     @accepted_games = current_user.game_players.joins(:game).where(game_players: { status: "accepted" }).select("games.*")
     @pending_games = current_user.game_players.joins(:game).where(game_players: { status: "pending" }).select("games.*")
   end
@@ -35,14 +28,12 @@ class GamesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
-    # Only allow a list of trusted parameters through.
-    def game_params
-      params.require(:game).permit(:name, :status, :park_id)
-    end
+  def game_params
+    params.require(:game).permit(:name, :status, :park_id)
+  end
 
-    def set_game
-      @game = Game.find(params[:id])
-    end
+  def set_game
+    @game = Game.find(params[:id])
+  end
 end
