@@ -9,14 +9,17 @@
   height: 50vh;
   overflow: scroll;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-
   text-align: center;
+
   .btn-end {
-    border-radius: 12px;
+    font-weight: 500;
+    margin: 16px;
+    color: white;
+    border-radius: 50px;
     background-color: #bb1414;
     border: none;
     text-decoration: none;
-    padding: 8px;
+    padding: 2px 24px;
   }
 }
 .leaderboard-item {
@@ -32,6 +35,9 @@
     font-family: "Raleway", sans-serif;
     font-weight: 500;
     color: #FB5607;
+  }
+  p{
+    margin: 0;
   }
 }
 .end-game-container {
