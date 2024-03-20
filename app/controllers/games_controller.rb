@@ -37,6 +37,8 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     @game.update(status: "ended")
+    @winner = @game.game_players.order(points: :desc).first
+    @winner.update(status: "won")
     redirect_to game_path(@game)
   end
 
