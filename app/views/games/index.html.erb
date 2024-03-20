@@ -13,7 +13,7 @@
  <div id="user_details1">
     <p><%= current_user.name%></p>
     <p><%= current_user.email%></p>
-    <p>Game count:4</p>
+    <p>Games:<%= @accepted_game_players.count()%></p>
  </div>
 </div>
 
@@ -33,11 +33,11 @@
     <h2>My Games</h2>
     <div class="upper">
       <ul>
-        <% @accepted_games.each do |game| %>
+        <% @accepted_game_players.each do |game_player| %>
           <div>
-          <%= game.name%>
-          <%= game.status %>
-          <%= link_to "View", game_path(game)%>
+          <%= game_player.game.name %>
+          <%= game_player.status %>
+          <%= link_to "View", game_path(game_player.game)%>
           </div>
         <% end %>
       </ul>
@@ -46,8 +46,9 @@
 
   <div class="tab-pane fade" id="pills-pending-games" role="tabpanel" aria-labelledby="pills-pending-games-tab">
     <h2>Pending Games</h2>
-      <% @pending_games.each do |game| %>
-        <%= render 'games/partials/game-card', game: game %>
+      <% @pending_game_players.each do |game_player| %>
+        <h1>You have been invited to: <%= game_player.game.name %></h1>
+        <%= render 'game_card', game: game_player.game %>
       <% end %>
   </div>
 

@@ -14,10 +14,7 @@ class GamePlayersController < ApplicationController
   end
 
   def create
-    @game_player = GamePlayer.new(game_id: game_player_params[:game_id],
-                                  user_id: game_player_params[:user_id],
-                                  points: 0,
-                                  status: "pending")
+    @game_player = GamePlayer.new(game_player_params)
     if @game_player.save
       redirect_to edit_game_game_player_path(@game_player.game, @game_player) if @game_player.user_id == current_user.id
     else
@@ -46,12 +43,12 @@ class GamePlayersController < ApplicationController
     redirect_to game_path(@game)
   end
 
-  def accept
-    @game_player = GamePlayer.find(params[:id])
-    @game_player.update(status = "accepted")
-    @game_player.save
-    redirect_to game_game_players_path, notice: 'Game player accepted successfully.'
-  end
+  # def accept
+  #   @game_player = GamePlayer.find(params[:id])
+  #   @game_player.update(status = "accepted")
+  #   @game_player.save
+  #   redirect_to game_game_players_path, notice: 'Game player accepted successfully.'
+  # end
 
   def destroy
     @game_player = GamePlayer.find(params[:id])
@@ -61,11 +58,24 @@ class GamePlayersController < ApplicationController
 
 
   def accept_game
-    game_player = GamePlayer.find_by(game_id: params[:id], user_id: current_user)
-    game_player.update(status: "accepted")
-    game_player.save
-    redirect_to games_path, notice: 'Game player accepted successfully.'
+    game = Game.find(params[:id])
+    @game_player = GamePlayer.find_by(game: game, user: current_user)
+
+    if @game_player.nil?
+      redirect_to games_path, alert: 'Game player not found.'
+      return
+    end
+
+    @game_player.update(status: "accepted")
+
+    if @game_player.save
+      redirect_to games_path, notice: 'Game player accepted successfully.'
+    else
+      # Handle save errors, if any
+      redirect_to games_path, alert: 'Error accepting game player.'
+    end
   end
+
 
   def decline_game
     game_player = GamePlayer.find_by(game_id: params[:id], user_id: current_user)
@@ -75,12 +85,12 @@ class GamePlayersController < ApplicationController
 
   end
 
-  def decline
-    @game_player = GamePlayer.find(params[:id])
-    @game_player.destroy
-    redirect_to game_path(@game_player.game), notice: "Game invitation declined."
-    # redirect_to game_game_players_path
-  end
+  # def decline
+  #   @game_player = GamePlayer.find(params[:id])
+  #   @game_player.destroy
+  #   redirect_to game_path(@game_player.game), notice: "Game invitation declined."
+  #   # redirect_to game_game_players_path
+  # end
 
   private
 

@@ -23,9 +23,9 @@ Rails.application.routes.draw do
   get '/play', to: 'pages#play'
   get '/rules', to: 'pages#rules'
 
-  get 'games/:id/accept-game', to: 'game_players#accept_game', as: 'accept_game'
+  post 'games/:id/accept-game', to: 'game_players#accept_game', as: 'accept_game'
 
-  get 'games/:id/decline-game', to: 'game_players#decline_game', as: 'decline_game'
+  delete 'games/:id/decline-game', to: 'game_players#decline_game', as: 'decline_game'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

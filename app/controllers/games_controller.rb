@@ -3,8 +3,8 @@ class GamesController < ApplicationController
 
   def index
     @game = current_user.game_players.last.game
-    @accepted_games = current_user.game_players.joins(:game).where(game_players: { status: "accepted" }).select("games.*")
-    @pending_games = current_user.game_players.joins(:game).where(game_players: { status: "pending" }).select("games.*")
+    @accepted_game_players = current_user.game_players.where(status: "accepted")
+    @pending_game_players = current_user.game_players.where(status: "pending")
   end
 
   def show
