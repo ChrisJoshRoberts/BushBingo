@@ -68,6 +68,35 @@
 }
 .you {
   background-color: #fb540754;
-  border: 2px solid #fb540762;
-  border-radius: 12px;
+  border-top: 2px solid #fb540762;
+  border-bottom: 2px solid #fb540762;
+
+}
+.winner-container {
+  border-radius: 14px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #c24105b8;
+
+  a{
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    opacity: 0.7;
+
+  }
+}
+
+.winner-info {
+  display: flex;
+  flex-direction: column;
+}
+.trophy{
+  width: 80px;
+}
+
+.info-img {
+  display: flex;
 }
