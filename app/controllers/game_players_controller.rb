@@ -36,6 +36,13 @@ class GamePlayersController < ApplicationController
       { url: 'monkey_avatar.png' },
       { url: 'zebra_avatar.png' }
     ]
+    @game_player_winning = current_user.game_players.where(status: "won").first
+    unless @game_player_winning.nil?
+      status = @game_player_winning.status == "won"
+    end
+    if status
+      @images << {url: 'pango_logo.png'}
+    end
   end
 
   def update
@@ -80,5 +87,8 @@ class GamePlayersController < ApplicationController
     params.require(:game_player).permit(:user_id, :game_id, :status, :points)
   end
 
+  def won_a_game
+
+  end
 
 end
