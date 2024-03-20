@@ -3,13 +3,15 @@
   <div class="header-infos">
     <div class="user-game-info-container">
       <% if @user_gameplayer.avatar.present? %>
-        <%= image_tag @user_gameplayer.avatar, class: "avatar" %>
+        <%= image_tag @user_gameplayer.avatar, class: "avatar-animal" %>
       <% end %>
     </div>
     <div class="info-titles">
-      <h1><%= @game.name %></h1>
-      <h2><%= @user.name %></h2>
-      <h3> Total points: <span class="points"><%= @game_player.points %></span></h3>
+      <h1><%= @user.name %></h1>
+      <h2><%= @game.name %></h2>
+      <div class="points-container">
+        <h3> Total points: <span class="points"><%= @game_player.points %></span></h3>
+      </div>
     </div>
   </div>
 </div>
@@ -51,6 +53,7 @@
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <div class="leaderboard-card">
         <% @game.game_players.each do |game_player| %>
+
             <% if game_player.user == current_user %>
               <div class="leaderboard-item you">
                 <strong><p>YOU</p></strong>
@@ -77,8 +80,10 @@
   </div>
 </div>
 <%= render partial: "partial/footer"%>
+
 <% if @game.status == "started" %>
   <div class="sighting-btn">
     <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
   </div>
 <% end %>
+

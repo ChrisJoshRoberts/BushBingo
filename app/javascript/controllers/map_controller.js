@@ -19,17 +19,6 @@ export default class extends Controller {
     this.#fitMapToMarker();
   }
 
-  // #addMarkerToMap() {
-  //   if (this.markerValue) {
-  //     const marker = JSON.parse(this.markerValue);
-  //     new mapboxgl.Marker()
-  //       .setLngLat([marker.lng, marker.lat])
-  //       .addTo(this.map);
-  //   } else {
-  //     console.error("Marker data is undefined");
-  //   }
-  // }
-
   #fitMapToMarker() {
     if (this.markerValue) {
       const marker = JSON.parse(this.markerValue);
@@ -58,6 +47,4 @@ export default class extends Controller {
       console.error("Marker data is undefined");
     }
   }
-
-
 }

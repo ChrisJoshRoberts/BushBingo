@@ -14,6 +14,6 @@
       data-controller="map"
       data-map-marker-value="<%= @marker %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    <%= link_to "Get directions", "https://www.google.com/maps?q=#{URI.encode_www_form_component(@park.location)}", target: "_blank", class: "btn-primary", style: "margin-top: 24px;" %>
+    <%= link_to "Open map", "https://www.google.com/maps?q=#{URI.encode_www_form_component(@park.location)}", target: "_blank", class: "btn-primary", style: "margin-top: 24px;" %>
   </div>
 </div>

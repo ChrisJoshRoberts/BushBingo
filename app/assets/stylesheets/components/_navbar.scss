@@ -37,14 +37,14 @@
   font-weight: 600;
 }
 .nav-link-bb {
+  font-size: 1.3rem;
   color: white;
   border: none;
   background-color: transparent;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
   transition: 0.5s;
-  opacity: 0.5;
+  opacity: 0.8;
   &:hover {
     opacity: 1;
   }
@@ -53,4 +53,7 @@
   font-size: 1.5rem;
   opacity: 1; /* Set full opacity for the active link */
   font-size: 1.5rem;
+  background-color: #c24105b8;
+  border-radius: 14px;
+
 }

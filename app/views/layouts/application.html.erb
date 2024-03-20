@@ -14,7 +14,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body class="<%= yield(:body_class) %>">
-    <%= image_tag("iOS Status Bar.png") %>
+    <%= image_tag("iOS Status Bar.png", style: "opacity: 0;" )%>
     <%= yield %>
     <%#= render 'partial/footer' %>
   </body>
