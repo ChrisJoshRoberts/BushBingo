@@ -3,13 +3,15 @@
   <div class="header-infos">
     <div class="user-game-info-container">
       <% if @user_gameplayer.avatar.present? %>
-        <%= image_tag @user_gameplayer.avatar, class: "avatar" %>
+        <%= image_tag @user_gameplayer.avatar, class: "avatar-animal" %>
       <% end %>
     </div>
     <div class="info-titles">
-      <h1><%= @game.name %></h1>
-      <h2><%= @user.name %></h2>
-      <h3> Total points: <span class="points"><%= @game_player.points %></span></h3>
+      <h1><%= @user.name %></h1>
+      <h2><%= @game.name %></h2>
+      <div class="points-container">
+        <h3> Total points: <span class="points"><%= @game_player.points %></span></h3>
+      </div>
     </div>
   </div>
 </div>
@@ -59,6 +61,9 @@
             <%= link_to "View Sightings" %>
           </div>
         <% end %>
+        <div class="end-game-container">
+          <p class="end-game">end game</p>
+        </div>
       </div>
     </div>
   </div>

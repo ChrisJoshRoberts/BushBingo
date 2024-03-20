@@ -29,7 +29,7 @@
 .user-game-info-container {
   display: flex;
 }
-.avatar {
+.avatar-animal {
   width: 120px;
 }
 .info-titles {
@@ -42,6 +42,7 @@
     font-weight: bolder;
   }
   h3 {
+    font-size: 0.9rem;
     display: flex;
     padding: 0px 24px;
     align-items: center;
@@ -53,7 +54,6 @@
   }
   .points {
     margin: 8px;
-    font-size: 1.8rem;
   }
 }
 .sightings-container {

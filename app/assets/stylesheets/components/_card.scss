@@ -9,6 +9,8 @@
   height: 50vh;
   overflow: scroll;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+
+
 }
 .leaderboard-item {
   display: flex;
@@ -24,4 +26,19 @@
     font-weight: 500;
     color: #FB5607;
   }
+}
+.end-game-container {
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.end-game {
+
+  width: fit-content;
+  margin: 0;
+  padding: 2px 24px;
+  background-color: rgb(194, 4, 4);
+  color: white;
+  border-radius: 50px;
 }
