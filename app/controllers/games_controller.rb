@@ -25,6 +25,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @game.status = "started"
     @park = Park.find(params[:park_id])
     @game.park = @park
     if @game.save
