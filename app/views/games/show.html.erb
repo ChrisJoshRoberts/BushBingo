@@ -1,5 +1,11 @@
 <% content_for :body_class, 'game-background' %>
 <div class="header">
+    <% if @game.status == 'ended' %>
+      <div>
+        <h2>WINNER!</h2>
+        <h1><%= @winner.user.name %></h1>
+      </div>
+    <% end %>
   <div class="header-infos">
     <div class="user-game-info-container">
       <% if @user_gameplayer.avatar.present? %>
@@ -52,7 +58,7 @@
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <div class="leaderboard-card">
-        <% @game.game_players.each do |game_player| %>
+        <% @game_players.each do |game_player| %>
 
             <% if game_player.user == current_user %>
               <div class="leaderboard-item you">
@@ -86,4 +92,3 @@
     <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
   </div>
 <% end %>
-
