@@ -1,11 +1,17 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["invite"]
+  static targets = ["invite", "togglableElement", "startGameButton"]
 
   connect() {
     console.log("Toggle controller connected");
   }
+
+  fire() {
+    this.togglableElementTarget.classList.remove("d-none");
+    this.startGameButtonTarget.classList.add('d-none');
+  }
+
 
   invited(event) {
     event.preventDefault();

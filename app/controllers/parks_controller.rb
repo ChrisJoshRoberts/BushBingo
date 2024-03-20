@@ -9,11 +9,11 @@ class ParksController < ApplicationController
 
   def show
     @park = Park.find(params[:id])
+    @game = Game.new
     @marker = {
       lng: @park.longitude,
       lat: @park.latitude,
       marker_html: render_to_string(partial: "marker").html_safe
   }.to_json
-
   end
 end
