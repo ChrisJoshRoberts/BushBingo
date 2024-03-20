@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: center;
   width:80%;
-  margin: 0 auto;
+  margin: 16px auto;
 }
 .profile-container{
   margin: 16px 0px;
@@ -65,4 +65,7 @@
     border-radius: 14px;
     padding: 16px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.profile-name {
+  font-weight: bolder;
 }

@@ -1,5 +1,6 @@
 <div class = "games_container1">
   <h6>Your Profile</h6>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to log out?" } %>
   <div class="profile-container">
     <div>
       <% if user_signed_in? && current_user.photo.present? %>
@@ -50,4 +51,4 @@
   </div>
   <%= link_to "Start new game", new_game_path, class: "btn-primary" %>
 </div>
-  <%= render "partial/footer", game: @game %>
+<%= render "partial/footer", game: @game %>
