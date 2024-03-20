@@ -59,11 +59,18 @@
             <%= link_to "View Sightings" %>
           </div>
         <% end %>
+        <% if @game.status == "started" %>
+          <%= form_with url: game_path(@game), method: :patch do %>
+            <%= submit_tag "End Game", class: "btn-end" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 <%= render partial: "partial/footer"%>
-<div class="sighting-btn">
-  <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
-</div>
+<% if @game.status == "started" %>
+  <div class="sighting-btn">
+    <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
+  </div>
+<% end %>
