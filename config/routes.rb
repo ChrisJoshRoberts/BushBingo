@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  get 'parks/index'
+  resources :parks, only: [:index, :show] do
+    resources :games, only: [:create]
+  end
 
-  resources :games, only: [:index, :show, :new, :create, :destroy, :update] do
+  resources :games, only: [:index, :show, :new, :destroy, :update] do
     resources :game_players do
       member do
         post :accept
@@ -21,7 +23,6 @@ Rails.application.routes.draw do
   end
 
   resources :animals, only: [:index, :show]
-  resources :parks, only: [:show]
 
   root to: "pages#landing"
 

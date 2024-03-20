@@ -13,7 +13,7 @@
       <div class="button-container">
         <% if @user.present? %>
         <div class="button-container">
-          <%= link_to "New Game", new_game_path, class: "btn-primary" %>
+          <%= link_to "New Game", parks_path, class: "btn-primary" %>
           <% unless @user.games.nil? %>
             <%= link_to "My Games", games_path, class: "btn-primary" %>
           <% end %>
