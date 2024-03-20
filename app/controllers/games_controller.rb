@@ -24,10 +24,12 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @park = Park.find(params[:park_id])
+    @game.park = @park
     if @game.save
       redirect_to new_game_game_player_path(@game), notice: "Game was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      redirect_to park_path(@park), status: :unprocessable_entity
     end
   end
 
@@ -40,7 +42,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name, :status, :park_id)
+    params.require(:game).permit(:name, :status)
   end
 
   def set_game
