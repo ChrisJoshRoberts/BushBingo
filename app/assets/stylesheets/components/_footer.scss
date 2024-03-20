@@ -1,5 +1,5 @@
 .footer {
-  background: #F4F4F4;
+  background: #ffffff;
   display: flex;
   align-items: center;
   height: 100px;
@@ -8,9 +8,8 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  box-shadow:  0px -15px 30px -15px rgba(0, 0, 0, 0.1)
-}
-
+  border-radius: 14px 14px 0 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 90px;}
 .footer-links {
   display: flex;
   align-items: center;

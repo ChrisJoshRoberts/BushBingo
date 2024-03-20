@@ -5,9 +5,6 @@ class ParksController < ApplicationController
     else
       @parks = Park.all
     end
-
-
-
   end
 
   def show

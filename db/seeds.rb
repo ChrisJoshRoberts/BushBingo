@@ -5,6 +5,7 @@
 puts "Clearing existing data..."
 Animal.destroy_all
 Park.destroy_all
+User.destroy_all
 
 puts "Seeding animals..."
 
@@ -493,21 +494,30 @@ kruger = Park.create(
   name: "Kruger National Park",
   location: "Limpopo, South Africa",
   description: "Kruger National Park is one of the largest game reserves in Africa. It covers an area of 19,485 square kilometres in the provinces of Limpopo and Mpumalanga in northeastern South Africa, and extends 360 kilometres from north to south and 65 kilometres from east to west. South Africa's first National Park containing significant numbers of all of the big 5 game species.",
-  image: "kruger.png"
+  image: "kruger.png",
+  latitude:-23.988139724183007,
+  longitude: 31.554772383487975
 )
 
 addo = Park.create(
   name: "Addo Elephant National Park",
   location: "Eastern Cape, South Africa",
   description: "Addo Elephant National Park is a diverse wildlife conservation park situated close to Port Elizabeth in South Africa. It is home to the Big Seven (elephant, rhinoceros, lion, buffalo, leopard, whale, and great white shark).",
-  image: "addo.png"
+  image: "addo.png",
+  latitude: -33.30827321310347,
+  longitude: 25.542579195389592,
+
 )
 
 kgalagadi = Park.create(
   name: "Kgalagadi Transfrontier Park",
   location: "Northern Cape, South Africa",
   description: "Kgalagadi Transfrontier Park is a vast wildlife preserve in the Kalahari Desert region of Botswana and South Africa, bordering Namibia to the west. It's characterized by red dunes and dry rivers. Wildlife includes migrating herds of wildebeest and springbok, plus predators like raptors and black-maned Kalahari lions.",
-  image: "kgalagadi.png"
+  image: "kgalagadi.png",
+  latitude: -25.155048454031675,
+  longitude: 20.979934708818828
+
+
 )
 
 hluhluwe = Park.create(
@@ -521,35 +531,46 @@ tsitsikamma = Park.create(
   name: "Tsitsikamma National Park",
   location: "Eastern Cape, South Africa",
   description: "Tsitsikamma National Park is a protected area on the Garden Route in the Western and Eastern Cape provinces of South Africa. It is well-known for its indigenous forests, dramatic coastline, and marine reserve.",
-  image: "tsitsikamma.png"
+  image: "tsitsikamma.png",
+  latitude: -34.01166280330447,
+  longitude: 24.01651685404707
 )
 
 mapungubwe = Park.create(
   name: "Mapungubwe National Park",
   location: "Limpopo, South Africa",
   description: "Mapungubwe National Park is located at the confluence of the Limpopo and Shashe Rivers in the Limpopo Province of South Africa. It is renowned for its cultural heritage, including the ancient Mapungubwe Kingdom and archaeological sites.",
-  image: "mapungubwe.png"
+  image: "mapungubwe.png",
+  latitude: -22.221789748731126,
+  longitude: 29.347269096937218
+
 )
 
 marakele = Park.create(
   name: "Marakele National Park",
   location: "Limpopo, South Africa",
   description: "Marakele National Park is a wildlife reserve in the Waterberg Mountains of South Africa's Limpopo Province. It is home to a variety of wildlife, including the Big Five, as well as bird species.",
-  image: "marakele.png"
+  image: "marakele.png",
+  latitude: -24.417610317331594,
+  longitude: 27.602249254662137
 )
 
 augrabies = Park.create(
   name: "Augrabies Falls National Park",
   location: "Northern Cape, South Africa",
   description: "Augrabies Falls National Park is located in the Northern Cape province of South Africa. It is named after the Augrabies Falls, which is a spectacular waterfall on the Orange River.",
-  image: "augrabies.png"
+  image: "augrabies.png",
+  latitude: -28.592270392352244,
+  longitude: 20.33638842171934
 )
 
 golden_gate = Park.create(
   name: "Golden Gate Highlands National Park",
   location: "Free State, South Africa",
   description: "Golden Gate Highlands National Park is located in the Free State province of South Africa. It is known for its stunning sandstone formations, expansive grasslands, and rich biodiversity.",
-  image: "golden_gate.png"
+  image: "golden_gate.png",
+  latitude: -28.503095097085573,
+  longitude: 28.585282123395018
 )
 all_animals = Animal.all
 
