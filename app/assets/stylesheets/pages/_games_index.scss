@@ -48,7 +48,7 @@
   a {
     text-decoration: none;
     color: #000000;
-  
+
   }
 }
 .games_container1 {
@@ -71,6 +71,7 @@
     border-radius: 14px;
     padding: 16px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    height: 80vh;
 
   h4 {
     font-weight: 800;
@@ -108,6 +109,7 @@
   }
 }
 .start {
+  margin: 0 auto;
   text-align: center;
   position: sticky;
   bottom: 124px;

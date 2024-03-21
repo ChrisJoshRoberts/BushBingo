@@ -1,0 +1,19 @@
+.game-container {
+  margin: 16px 24px;
+  padding: 24px;
+}
+.game-players-title {
+  margin-top: 24px;
+  display: flex;
+
+  h1 {
+    margin-left: 8px;
+  }
+}
+
+.view-link {
+  color: #FB5607;
+  text-decoration: none;
+  margin: 0 16px;
+  font-weight: 600;
+}

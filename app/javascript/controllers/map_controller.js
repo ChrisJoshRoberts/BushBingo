@@ -23,7 +23,7 @@ export default class extends Controller {
     if (this.markerValue) {
       const marker = JSON.parse(this.markerValue);
       this.map.setCenter([marker.lng, marker.lat]);
-      this.map.setZoom(9); // Adjust the zoom level as needed
+      this.map.setZoom(4); // Adjust the zoom level as needed
     } else {
       console.error("Marker data is undefined");
     }
