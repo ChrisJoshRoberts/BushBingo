@@ -4,6 +4,7 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
     @game = current_user.game_players.last.game
+    @my_game_players = current_user.game_players
     @accepted_games = current_user.game_players.joins(:game).where(game_players: { status: "accepted" }).select("games.*")
     @pending_games = current_user.game_players.joins(:game).where(game_players: { status: "pending" }).select("games.*")
     @winner = @game.game_players.order(points: :desc).first
