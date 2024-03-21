@@ -3,12 +3,13 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
-    @game = current_user.game_players.last.game
+    unless current_user.game_players.last.nil?
+      @game = current_user.game_players.last.game
+      @winner = @game.game_players.order(points: :desc).first
+    end
     @my_game_players = current_user.game_players
     @pending_game_players = current_user.game_players.where(status: "pending")
-    @winner = @game.game_players.order(points: :desc).first
     @accepted_game_players = current_user.game_players.where(status: ["accepted", "won"])
-
   end
 
 
