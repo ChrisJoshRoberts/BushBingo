@@ -1,14 +1,26 @@
 .progress {
+  display: flex;
   width: 80%;
-  height: 8px;
-  border: 1px solid black;
-  border-radius: 8px;
+  height: 30px;
   margin: 8px auto;
+  align-items: center;
+  justify-content: center;
+  .line {
+    width: 32%;
+    height: 0px;
+    border: 1px solid rgba(0, 0, 0, 0.347);
+  }
   .progression {
-    border: 1px solid black;
-    width: 33.33%;
+    border: 1px solid rgba(0, 0, 0, 0.347);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
   }
   .completed {
-    background-color: greenyellow;
+    background-color: $orange;
+    border: 1px solid rgb(0, 0, 0);
+  }
+  .completed-line {
+    border: solid 1px $orange;
   }
 }
