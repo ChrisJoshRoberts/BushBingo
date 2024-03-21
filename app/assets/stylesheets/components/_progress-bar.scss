@@ -1,0 +1,14 @@
+.progress {
+  width: 80%;
+  height: 8px;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 8px auto;
+  .progression {
+    border: 1px solid black;
+    width: 33.33%;
+  }
+  .completed {
+    background-color: greenyellow;
+  }
+}
