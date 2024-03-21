@@ -9,10 +9,9 @@
         <%= link_to edit_user_registration_path do %>
           <%= cl_image_tag(current_user.photo.key, class:"profile_img") %>
           <div id="user_details1">
-            <p class="profile-name"><%= current_user.name%></p>
+            <p><%= current_user.name%></p>
             <p><%= current_user.email%></p>
-            <!--game_count-->
-            <!--       <p>Games: <%#=  %></p>-->
+            <p>Games:<%= @accepted_game_players.count()%></p>
           </div>
         </div>
       </div>
@@ -32,32 +31,34 @@
   <div class="tab-pane fade show active" id="pills-my-games" role="tabpanel" aria-labelledby="pills-my-games-tab">
     <h2 class="card-titles">My Games</h2>
     <div class="games-list-container">
-      <% @games.each do |game| %>
-        <div class="games-list-item">
-          <div class="games-list-inner">
-            <h4><%= game.name %></h4>
-            <% if game.status == "ended" %>
-              <p style="color: red;"><%= game.status %></p>
-              <div class="winner-index-container">
-                <%= image_tag("3d-fluency-trophy.png", class: "index-trophy") %>
-                <p>Winner: <%= @winner.user.name %></p>
-              </div>
-            <% else %>
-              <p style="color: green;"><%= game.status %></p>
-            <% end %>
+      <% unless @my_game_players.nil? %>
+        <% @my_game_players.each do |game_player| %>
+          <div class="games-list-item">
+            <div class="games-list-inner">
+              <h4><%= game_player.game.name %></h4>
+              <% if game_player.game.status == "ended" %>
+                <p style="color: red;"><%= game_player.game.status %></p>
+                <div class="winner-index-container">
+                  <%= image_tag("3d-fluency-trophy.png", class: "index-trophy") %>
+                  <p>Winner: <%= @winner.user.name %></p>
+                </div>
+              <% else %>
+                <p style="color: green;"><%= game_player.game.status %></p>
+              <% end %>
+            </div>
+            <%= link_to "enter", game_path(game_player.game) %>
           </div>
-          <%= link_to "enter", game_path(game) %>
-        </div>
-      <% end  %>
+        <% end  %>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-pending-games" role="tabpanel" aria-labelledby="pills-pending-games-tab">
+      <h2 class="card-titles">Pending Games</h2>
+      <% @pending_games.each do |game| %>
+        <%= render 'game-card', game: game.game %>
+      <% end %>
     </div>
   </div>
-  <div class="tab-pane fade" id="pills-pending-games" role="tabpanel" aria-labelledby="pills-pending-games-tab">
-    <h2 class="card-titles">Pending Games</h2>
-    <% @pending_games.each do |game| %>
-      <%= render 'game_card', game: game %>
-    <% end %>
-  </div>
-</div>
+<% end %>
 <%= link_to "Start new game", new_game_path, class: "btn-primary start" %>
 </div>
 <%= render "partial/footer", game: @game %>

@@ -1,0 +1,12 @@
+<% content_for :body_class, 'game-background' %>
+<%= link_to image_tag("arrow-back-white.png"), parks_path, class: "back-arrow-white" %>
+<div class="park-animals-header">
+  <h1><%= @park.name %>'s Animals</h1>
+</div>
+<% @park_animals.each do |pa| %>
+  <div class="animal-card">
+    <%= image_tag(pa.animal.image) %>
+    <h1><%= pa.animal.name %></h1>
+    </div>
+<% end %>
+<%= render "partial/footer", game: @game %>
