@@ -621,10 +621,12 @@ tsitsikamma_animals = all_animals.each do |animal|
 end
 
 marakele_animals = all_animals.each do |animal|
+  unless animal.name == "Pangolin"
   ParkAnimal.create(
     animal_id: animal.id,
     park_id: marakele.id
   )
+  end
 end
 
 augrabies_animals = all_animals.each do |animal|
