@@ -30,6 +30,8 @@
       <div class="flexbox">
         <% if user.photo.present? %>
           <%= cl_image_tag(user.photo.key, class: "avatar") %>
+        <% elsif user.image.present? %>
+          <%= image_tag(user.image, class: "avatar") %>
         <% end %>
         <% if user.name.present? %>
           <p class="name"><%= user.name %></p>
