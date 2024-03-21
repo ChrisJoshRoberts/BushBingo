@@ -11,7 +11,7 @@
           <div id="user_details1">
             <p><%= current_user.name%></p>
             <p><%= current_user.email%></p>
-            <p>Games:<%= @accepted_game_players.count()%></p>
+            <p>Games:<%= @accepted_game_players.count%></p>
           </div>
         </div>
       <% end %>
@@ -33,32 +33,38 @@
       <div class="games-list-container">
         <% unless @my_game_players.nil? %>
           <% @my_game_players.each do |game_player| %>
-            <div class="games-list-item">
-              <div class="games-list-inner">
-                <h4><%= game_player.game.name %></h4>
-                <% if game_player.game.status == "ended" %>
-                  <p style="color: red;"><%= game_player.game.status %></p>
-                  <div class="winner-index-container">
-                    <%= image_tag("3d-fluency-trophy.png", class: "index-trophy") %>
-                    <p>Winner: <%= @winner.user.name %></p>
-                  </div>
-                <% else %>
-                  <p style="color: green;"><%= game_player.game.status %></p>
-                <% end %>
+            <% if game_player.status == "accepted" || game_player.status == "won" %>
+              <div class="games-list-item">
+                <div class="games-list-inner">
+                  <h4><%= game_player.game.name %></h4>
+                  <% if game_player.game.status == "ended" %>
+                    <p style="color: red;"><%= game_player.game.status %></p>
+                    <div class="winner-index-container">
+                      <%= image_tag("3d-fluency-trophy.png", class: "index-trophy") %>
+                      <p>Winner: <%= @winner.user.name %></p>
+                    </div>
+                  <% else %>
+                    <p style="color: green;"><%= game_player.game.status %></p>
+                  <% end %>
+                </div>
+                <%= link_to "enter", game_path(game_player.game) %>
               </div>
-              <%= link_to "enter", game_path(game_player.game) %>
-            </div>
-          <% end  %>
+            <% end  %>
+          <% end %>
         </div>
       </div>
       <div class="tab-pane fade" id="pills-pending-games" role="tabpanel" aria-labelledby="pills-pending-games-tab">
         <h2 class="card-titles">Pending Games</h2>
+        <%  last_player_id = @pending_game_players.first %>
         <% @pending_game_players.each do |game_player| %>
-          <%= render 'game_card', game: game_player.game %>
+          <% unless last_player_id == game_player.user_id  %>
+            <%= render 'game_card', game: game_player.game %>
+          <% end %>
+          <% last_player_id = game_player.user_id %>
         <% end %>
       </div>
     </div>
   <% end %>
-<%= link_to "Start new game", parks_path, class: "btn-primary start", data: {target: "button"}%>
+  <%= link_to "Start new game", parks_path, class: "btn-primary start", data: {target: "button"}%>
 </div>
 <%= render "partial/footer", game: @game %>
