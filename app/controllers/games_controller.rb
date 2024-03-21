@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
     @game = current_user.game_players.last.game
-    @accepted_game_players = current_user.game_players.where(status: "accepted")
+    @accepted_game_players = current_user.game_players.where(status: ["accepted", "won"])
     @pending_game_players = current_user.game_players.where(status: "pending")
   end
 
@@ -26,6 +26,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @park = Park.find(params[:park_id])
+    @game.status = "started"
     @game.park = @park
     if @game.save
       redirect_to new_game_game_player_path(@game), notice: "Game was successfully created."
@@ -45,7 +46,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name, :status)
+    params.require(:game).permit(:name)
   end
 
   def set_game

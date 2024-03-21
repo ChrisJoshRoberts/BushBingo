@@ -39,10 +39,10 @@
     <div class="tab-pane fade show active" id="pills-my-games" role="tabpanel" aria-labelledby="pills-my-games-tab">
       <h2 class="card-titles">My Games</h2>
       <div class="games-list-container">
-        <% @games.each do |game| %>
-          <h4><%= game.name %></h4>
-          <p><%= game.status %></p>
-          <%= link_to "Enter", game_path(game) %>
+        <% @accepted_game_players.each do |game_player| %>
+          <h4><%= game_player.game.name %></h4>
+          <p><%= game_player.game.status %></p>
+          <%= link_to "Enter", game_path(game_player.game) %>
         <% end  %>
       </div>
     </div>
