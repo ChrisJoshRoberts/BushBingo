@@ -645,14 +645,14 @@ User.create!(
   email: "caspersikosana@gmail.com",
   password: "password",
   name: "Sikosana",
-  image: "/app/assets/images/user_images/cas.jpg"
+  image: "user_images/cas.jpg"
 )
 
 User.create!(
   email: "tafamiri@gmail.com",
   password: "password",
   name: "Miry",
-  image: "/app/assets/images/user_images/miry.jpg"
+  image: "user_images/miry.jpg"
 )
 
 
@@ -660,54 +660,54 @@ User.create!(
   email: "shumirai@gmail.com",
   password: "password",
   name: "Shumy",
-  image: "/app/assets/images/user_images/shumi.jpg"
+  image: "user_images/shumi.jpg"
 )
 
 User.create!(
   email: "alvinsalters@gmail.com",
   password: "password",
   name: "AlvinS",
-  image: "/app/assets/images/user_images/alvin-mahmudov-vKuEhorbvYI-unsplash.jpg"
+  image: "user_images/alvin-mahmudov-vKuEhorbvYI-unsplash.jpg"
 )
 
 User.create!(
   email: "timothyburner@gmail.com",
   password: "password",
   name: "Timmyturner",
-  image: "/app/assets/images/user_images/tim-bish-fJ8XR7gIDGo-unsplash.jpg"
+  image: "user_images/tim-bish-fJ8XR7gIDGo-unsplash.jpg"
 )
 User.create!(
   email: "munashemusabayane@gmail.com",
   password: "password",
   name: "Munted09",
-  image: "/app/assets/images/user_images/munted.jpg"
+  image: "user_images/munted.jpg"
 )
 
 User.create!(
   email: "tracyevans@gmail.com",
   password: "password",
   name: "tracylions",
-  image: "/app/assets/images/user_images/istockphoto-1472310103-1024x1024.jpg"
+  image: "user_images/istockphoto-1472310103-1024x1024.jpg"
 )
 
 User.create!(
   email: "taylorswift@gmail.com",
   password: "password",
   name: "theOGtaylor",
-  image: "/app/assets/images/user_images/taylor.jpeg"
+  image: "user_images/taylor.jpeg"
 )
 
 User.create!(
   email: "belovedanopa@gmail.com",
   password: "password",
   name: "masterbee",
-  image: "/app/assets/images/user_images/bee.jpg"
+  image: "user_images/bee.jpg"
 )
 
 User.create!(
   email: "anesuz@gmail.com",
   password: "password",
   name: "gamer202",
-  image: "/app/assets/images/user_images/ane.jpg"
+  image: "user_images/ane.jpg"
 )
 puts "Seeding completed."
