@@ -1,3 +1,6 @@
+
+<div class="invites" data-controller="toggle">
+
 <div class="progress">
   <div class="progression completed"></div>
   <div class="line completed-line"></div>
@@ -7,28 +10,30 @@
   <div class="line"></div>
   <div class="progression"></div>
 </div>
-<div class="invites">
+
   <h1>Invite Friends to your game:</h1>
-  <div class="row justify-content-center">
-    <div class="col-sm-6 my-3">
-      <%= form_with url:  new_game_game_player_path, method: :get, class: "d-flex my-3" do %>
-        <%= text_field_tag :query,
+  <div class="search-container">
+    <div class="row justify-content-center">
+      <div class="col-sm-3 m-3">
+        <%= form_with url:  new_game_game_player_path, method: :get, class: "d-flex my-3" do %>
+          <%= text_field_tag :query,
             params[:query],
-            class: "input-form"
+            class: "input-form m-1"
         %>
-        <%= submit_tag "Search", name: "", class: "btn-primary", style: "border: none;" %>
-      <% end %>
+          <%= submit_tag "Search", name: "", class: "btn-primary", style: "border: none;" %>
+        <% end %>
+      </div>
     </div>
   </div>
   <% @users.each do |user| %>
     <% unless user.id == current_user.id %>
-      <div class="flexbox" data-controller="toggle">
+      <div class="flexbox">
         <% if user.photo.present? %>
           <%= cl_image_tag(user.photo.key, class: "avatar") %>
         <% end %>
         <% if user.name.present? %>
           <p class="name"><%= user.name %></p>
-          <div data-toggle-target="invite">
+          <div data-toggle-target="invite" data-toggle-target="input">
             <%= simple_form_for([ @game, @game_player ]) do |f| %>
               <%= f.hidden_field :game_id, value: @game.id %>
               <%= f.hidden_field :user_id, value: user.id %>
@@ -41,12 +46,16 @@
       </div>
     <% end %>
   <% end %>
-  <%= simple_form_for([ @game, @game_player ]) do |f| %>
-    <!--this is the wrong form-->
-    <%= f.hidden_field :game_id, value: @game.id %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :points, value: 0 %>
-    <%= f.hidden_field :status, value: "accepted" %>
-    <%= f.submit "Continue", class: "btn-primary", style: "border: none;"%>
-  <% end %>
+  <div class="sticky">
+    <%= simple_form_for([ @game, @game_player ]) do |f| %>
+      <!--this is the wrong form-->
+      <%= f.hidden_field :game_id, value: @game.id %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :points, value: 0 %>
+      <%= f.hidden_field :status, value: "accepted" %>
+      <div class="continue">
+        <%= f.submit "Continue", class: "btn-primary d-none", style: "border: none;", data: { 'toggle-target': 'continue'} %>
+      </div>
+    <% end %>
+  </div>
 </div>

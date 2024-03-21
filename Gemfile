@@ -62,6 +62,8 @@ gem "dotenv-rails"
 gem "cloudinary"
 gem "geocoder"
 gem "htmlbeautifier"
+gem 'httparty'
+
 
 
 group :development, :test do

@@ -92,11 +92,13 @@
         <% end %>
       </div>
     </div>
-    <div class="sighting-btn" data-buttons-target="hideable">
-      <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
-    </div>
     <div data-buttons-target="footer">
       <%= render partial: "partial/footer"%>
     </div>
+    <% if @game.status == "started" %>
+      <div class="sighting-btn" data-buttons-target="hideable">
+        <%= link_to image_tag("add.png"), game_park_park_animals_path(@game, @park) %>
+      </div>
+    <% end %>
   </div>
 </div>

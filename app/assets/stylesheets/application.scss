@@ -120,3 +120,14 @@ body {
   display: flex;
   align-items: center;
 }
+.search-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.sticky {
+  position: sticky;
+  bottom: 80px;
+  z-index: 1000;
+}
