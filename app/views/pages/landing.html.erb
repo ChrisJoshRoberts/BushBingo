@@ -3,7 +3,7 @@
     <img src="<%= asset_path('pango_logo.png') %>" alt="Logo" class="logo">
     <div class="landing-card card" data-landing-page-target="card">
       <% if @user.present? %>
-        <h2>Hello <%= @user.name %>!</h2>
+        <h2>Hello <%= @user.name %></h2>
         <h2 class="pango">My name is Pango!</h2>
         <p>What would you like to do today?</p>
       <% else %>
@@ -12,19 +12,18 @@
       <% end %>
       <div class="button-container">
         <% if @user.present? %>
-        <div class="button-container">
-          <%= link_to "New Game", parks_path, class: "btn-primary" %>
-          <% unless @user.games.nil? %>
-            <%= link_to "My Games", games_path, class: "btn-primary" %>
-          <% end %>
-          <%= link_to "Read the rules", rules_path, class: "btn-secondary" %>
-        </div>
+          <div class="button-container">
+            <%= link_to "New Game", parks_path, class: "btn-primary" %>
+            <% unless @user.games == [] %>
+              <%= link_to "My Games", games_path, class: "btn-primary" %>
+            <% end %>
+            <%= link_to "Read the rules", rules_path, class: "btn-secondary" %>
+          </div>
         <% else %>
-        <div class="button-container">
-          <%= link_to "Log In", new_user_session_path, class: "btn-primary" %>
-          <%= link_to "Sign Up", new_user_registration_path, class: "btn-secondary" %>
-        </div>
-
+          <div class="button-container">
+            <%= link_to "Log In", new_user_session_path, class: "btn-primary" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn-secondary" %>
+          </div>
         <% end %>
       </div>
     </div>

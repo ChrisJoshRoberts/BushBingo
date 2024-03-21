@@ -1,12 +1,13 @@
-<!--<div class="parks-container">
+<div class="parks-container">
   <h1> Pick a Park</h1>
-  <%# @parks.each do |park| %>-->
-<!--    <label>
+  <% @parks.each do |park| %>
+    <label>
       <div class="park-card">
-          <h2><%#=link_to park.name, park_path(park) %></h2>
-          <%#= image_tag park.image, class: "park_img" %>-->
-<!--      </div>
+          <h2><%=link_to park.name, park_path(park) %></h2>
+          <%= image_tag park.image, class: "park_img" %>
+      </div>
+      <%= link_to "Select", new_game_path %>
     </label>
-  <%# end %>-->
-<!--</div>
--->
+  <% end %>
+
+</div>

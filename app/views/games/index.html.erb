@@ -1,4 +1,4 @@
-<div class = "games_container1">
+<div class = "games_container1" data-controller="games" data-games-target="container" >
   <div class="title-container">
     <h6>Your Profile</h6>
     <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to log out?" }, class: "logout"%>
@@ -14,9 +14,9 @@
             <p>Games:<%= @accepted_game_players.count()%></p>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
   <div class="toggle-container">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -59,6 +59,6 @@
       </div>
     </div>
   <% end %>
-  <%= link_to "Start new game", new_game_path, class: "btn-primary start" %>
+<%= link_to "Start new game", parks_path, class: "btn-primary start", data: {target: "button"}%>
 </div>
 <%= render "partial/footer", game: @game %>

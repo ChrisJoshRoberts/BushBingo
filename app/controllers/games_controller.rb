@@ -14,12 +14,13 @@ class GamesController < ApplicationController
 
 
   def show
+    @game = Game.find(params[:id])
     @park = @game.park
     @user = current_user
     @game_player = GamePlayer.find_by(game: @game, user: @user)
-    @user_gameplayer = current_user.game_players.where(game: @game.id).first
     @game_players = @game.game_players.order(points: :desc)
     @winner = @game_players.first
+
   end
 
   def new

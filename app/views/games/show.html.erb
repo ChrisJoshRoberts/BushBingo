@@ -14,8 +14,8 @@
   <% end %>
   <div class="header-infos">
     <div class="user-game-info-container">
-      <% if @user_gameplayer.avatar.present? %>
-        <%= image_tag @user_gameplayer.avatar, class: "avatar-animal" %>
+      <% if @game_player.avatar.present? %>
+        <%= image_tag @game_player.avatar, class: "avatar-animal" %>
       <% end %>
     </div>
     <div class="info-titles">
@@ -48,14 +48,13 @@
       <% end %>
       <div class="sightings-container">
         <% @game_player.animals.each do |animal| %>
-          <% park_animal = ParkAnimal.find_by(animal_id: animal.id, park_id: @park.id) %>
           <div class="spotted-animal-card">
             <%= image_tag animal.image %>
             <div class="animal-info">
               <h2><%= animal.name %></h2>
               <p>points: <span><%= animal.points %></span></p>
               <div class="link">
-                <%= link_to "View", game_park_park_animal_path(@game, @park, park_animal) if park_animal %>
+                <%= link_to "View", animal_path(animal) if animal %>
               </div>
             </div>
           </div>
@@ -72,7 +71,6 @@
                   <p>YOU</p>
                 </strong>
                 <p>Points: <%= game_player.points %></p>
-                <%= link_to "View Sightings" %>
               </div>
             <% else %>
               <div class="leaderboard-item">
@@ -80,7 +78,7 @@
                   <p><%= game_player.user.name %></p>
                 </strong>
                 <p>Points: <%= game_player.points %></p>
-                <%= link_to "View Sightings" %>
+                <%= link_to "View Sightings", game_game_player_path(@game, game_player) %>
               </div>
             <% end %>
           <% end %>

@@ -1,16 +1,13 @@
-
 <div class="invites" data-controller="toggle">
-
-<div class="progress">
-  <div class="progression completed"></div>
-  <div class="line completed-line"></div>
-  <div class="progression completed"></div>
-  <div class="line"></div>
-  <div class="progression"></div>
-  <div class="line"></div>
-  <div class="progression"></div>
-</div>
-
+  <div class="progress">
+    <div class="progression completed"></div>
+    <div class="line completed-line"></div>
+    <div class="progression completed"></div>
+    <div class="line"></div>
+    <div class="progression"></div>
+    <div class="line"></div>
+    <div class="progression"></div>
+  </div>
   <h1>Invite Friends to your game:</h1>
   <div class="search-container">
     <div class="row justify-content-center">
@@ -28,11 +25,15 @@
   <% @users.each do |user| %>
     <% unless user.id == current_user.id %>
       <div class="flexbox">
-        <% if user.photo.present? %>
-          <%= cl_image_tag(user.photo.key, class: "avatar") %>
-        <% end %>
-        <% if user.name.present? %>
-          <p class="name"><%= user.name %></p>
+        <div class="user-container">
+          <% if user.photo.present? %>
+            <%= cl_image_tag(user.photo.key, class: "avatar-user") %>
+          <% else %>
+            <%= image_tag user.image, class: "avatar-user" %>
+          <% end %>
+          <% if user.name.present? %>
+            <p class="name"><%= user.name %></p>
+          </div>
           <div data-toggle-target="invite" data-toggle-target="input">
             <%= simple_form_for([ @game, @game_player ]) do |f| %>
               <%= f.hidden_field :game_id, value: @game.id %>

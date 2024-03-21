@@ -3,6 +3,11 @@ class GamePlayersController < ApplicationController
     @game_players = GamePlayer.where(user_id: current_user.id)
   end
 
+  def show
+    @game_player = GamePlayer.find(params[:id])
+    @game = Game.find(params[:game_id])
+  end
+
   def new
     @game_player = GamePlayer.new
     @game = Game.find(params[:game_id])
