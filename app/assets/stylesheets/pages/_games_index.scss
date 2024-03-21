@@ -45,6 +45,11 @@
     border-radius: 50%;
 
   }
+  a {
+    text-decoration: none;
+    color: #000000;
+  
+  }
 }
 .games_container1 {
   h6 {
@@ -74,6 +79,7 @@
 .profile-name {
   margin: 16px 0px;
   font-weight: bolder;
+  text-decoration: none;
 }
 .title-container {
   display: flex;
