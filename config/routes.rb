@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :spotted_animals, only: [:create, :destroy]
     end
 
-    resources :parks, only: [:index] do
+    resources :parks, only: [:index, :show] do
       resources :park_animals, only: [:index, :show]
     end
   end
