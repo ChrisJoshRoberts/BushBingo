@@ -6,8 +6,9 @@
   background: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;  #user_details1{
-    height:auto;
+
+  #user_details1{
+  height:auto;
 
   p{
     font-weight: bold;
@@ -65,7 +66,58 @@
     border-radius: 14px;
     padding: 16px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+  h4 {
+    font-weight: 800;
+  }
 }
 .profile-name {
+  margin: 16px 0px;
   font-weight: bolder;
+}
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0px;
+}
+.logout {
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  color: #fb5407;
+  border-bottom:#fb5407 ;
+}
+.games-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 8px;
+  padding-bottom: 16px; ;
+  border-bottom: 0.5px solid #e0e0e0;
+
+  a{
+    text-decoration: none;
+    color: #fb5407
+  }
+}
+.start {
+  text-align: center;
+  position: sticky;
+  bottom: 124px;
+}
+.games-list-inner {
+  text-align: left;
+}
+.index-trophy {
+  padding: 8px;
+  background-color: #fff4af;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.winner-index-container {
+  display: flex;
+  align-items: center;
 }

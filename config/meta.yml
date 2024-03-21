@@ -1,6 +1,6 @@
 # config/meta.yml
- meta_product_name: "BushBingo"
- meta_title: "BushBingo - Spot Animals Game for Safari Adventures"
- meta_description: "Embark on a thrilling adventure with BushBingo, the ultimate spot animals game for safari enthusiasts. Test your wildlife spotting skills and enjoy an immersive safari experience like never before. Start playing now!"
- meta_image: "cover.png" # should exist in `app/assets/images/`
- twitter_account: "@LynnMusaa" # required for Twitter Cards
+meta_product_name: "BushBingo"
+meta_title: "BushBingo - Spot Animals Game for Safari Adventures"
+meta_description: "Embark on a thrilling adventure with BushBingo, the ultimate spot animals game for safari enthusiasts. Test your wildlife spotting skills and enjoy an immersive safari experience like never before. Start playing now!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@LynnMusaa" # required for Twitter Cards

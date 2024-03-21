@@ -5,8 +5,8 @@
   background-color: #ffffff;
   border-radius: 14px;
   padding: 16px;
+  margin-bottom: 16px;
   align-items: center;
-  margin: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
 
@@ -19,7 +19,7 @@
     padding-top: 16px;
     font-size: 24px;
     text-decoration: none;
-    color: #FB5607;
+    color: #000000;
     font-weight: bolder;
   }
 }
@@ -61,4 +61,7 @@
     font-family: "Raleway", sans-serif;
     font-weight: bolder;
   }
+}
+.park-buttons-container {
+  margin: 24px 0px;
 }

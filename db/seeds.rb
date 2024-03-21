@@ -468,7 +468,7 @@ zebra = Animal.create(
 pangolin = Animal.create(
   name: "Pangolin",
   animal_type: "Mammal",
-  points: 7,
+  points: 100,
   description: "The pangolin is a unique mammal covered in scales, resembling a walking pinecone. It is known for its ability to roll into a ball when threatened.",
   sound: "sounds/pangolin_hiss.mp3",
   spoor: ActionController::Base.helpers.asset_path("pangolin_spoor.png"),
@@ -575,10 +575,11 @@ golden_gate = Park.create(
 all_animals = Animal.all
 
 kruger_animals = all_animals.each do |animal|
-  ParkAnimal.create(
-  animal_id: animal.id,
-  park_id: kruger.id
-)
+
+    ParkAnimal.create(
+    animal_id: animal.id,
+    park_id: kruger.id
+    )
 end
 
 mapungubwe_animals = all_animals.each do |animal|
@@ -611,10 +612,12 @@ hluhluwe_animals = all_animals.each do |animal|
 end
 
 tsitsikamma_animals = all_animals.each do |animal|
-  ParkAnimal.create(
-    animal_id: animal.id,
-    park_id: tsitsikamma.id
-  )
+  unless animal.name == "Pangolin"
+    ParkAnimal.create(
+      animal_id: animal.id,
+      park_id: tsitsikamma.id
+    )
+  end
 end
 
 marakele_animals = all_animals.each do |animal|

@@ -5,13 +5,8 @@ Rails.application.routes.draw do
     resources :games, only: [:create]
   end
 
-  resources :games, only: [:index, :show, :new, :destroy, :update] do
-    resources :game_players do
-      member do
-        post :accept
-        delete :decline
-      end
-    end
+  resources :games, only: [:index, :show, :new, :create, :destroy, :update] do
+    resources :game_players
 
     resources :animals, only: [:index, :show] do
       resources :spotted_animals, only: [:create, :destroy]
@@ -28,6 +23,10 @@ Rails.application.routes.draw do
 
   get '/play', to: 'pages#play'
   get '/rules', to: 'pages#rules'
+
+  post 'games/:id/accept-game', to: 'game_players#accept_game', as: 'accept_game'
+
+  delete 'games/:id/decline-game', to: 'game_players#decline_game', as: 'decline_game'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
