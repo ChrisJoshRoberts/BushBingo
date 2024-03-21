@@ -644,7 +644,7 @@ end
 User.create!(
   email: "caspersikosana@gmail.com",
   password: "password",
-  name: "Sikosana",
+  name: "John",
   image: "user_images/cas.jpg"
 )
 
@@ -666,48 +666,48 @@ User.create!(
 User.create!(
   email: "alvinsalters@gmail.com",
   password: "password",
-  name: "AlvinS",
+  name: "Emily",
   image: "user_images/alvin-mahmudov-vKuEhorbvYI-unsplash.jpg"
 )
 
 User.create!(
   email: "timothyburner@gmail.com",
   password: "password",
-  name: "Timmyturner",
+  name: "David",
   image: "user_images/tim-bish-fJ8XR7gIDGo-unsplash.jpg"
 )
 User.create!(
   email: "munashemusabayane@gmail.com",
   password: "password",
-  name: "Munted09",
+  name: "Daniel",
   image: "user_images/munted.jpg"
 )
 
 User.create!(
   email: "tracyevans@gmail.com",
   password: "password",
-  name: "tracylions",
+  name: "Sarah",
   image: "user_images/istockphoto-1472310103-1024x1024.jpg"
 )
 
 User.create!(
   email: "taylorswift@gmail.com",
   password: "password",
-  name: "theOGtaylor",
+  name: "Jessica",
   image: "user_images/taylor.jpeg"
 )
 
 User.create!(
   email: "belovedanopa@gmail.com",
   password: "password",
-  name: "masterbee",
+  name: "Ryan",
   image: "user_images/bee.jpg"
 )
 
 User.create!(
   email: "anesuz@gmail.com",
   password: "password",
-  name: "gamer202",
+  name: "Joshua",
   image: "user_images/ane.jpg"
 )
 puts "Seeding completed."

@@ -1,7 +1,6 @@
 <div class="bg-white big-rounded shadow-sm px-5 py-3 d-flex" >
   <div class="game-card-left ms-3 d-flex flex-column justify-content-center flex-grow-1">
     <p class="invite-msg">You have been invited to: <%= game.name %></p>
-
   </div>
   <div class="game-card-right d-flex flex-column align-items-center justify-content-around">
     <%= link_to "Accept", accept_game_path(game), data: { turbo_method: :post }, class: "btn btn-success pb-1" %>
