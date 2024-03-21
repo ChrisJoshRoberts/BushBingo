@@ -6,13 +6,13 @@ class GamesController < ApplicationController
     @game = current_user.game_players.last.game
     @accepted_games = current_user.game_players.joins(:game).where(game_players: { status: "accepted" }).select("games.*")
     @pending_games = current_user.game_players.joins(:game).where(game_players: { status: "pending" }).select("games.*")
+    @winner = @game.game_players.order(points: :desc).first
   end
 
   def show
     @park = @game.park
     @user = current_user
     @game_player = GamePlayer.find_by(game: @game, user: @user)
-
     @user_gameplayer = current_user.game_players.where(game: @game.id).first
     @game_players = @game.game_players.order(points: :desc)
     @winner = @game_players.first

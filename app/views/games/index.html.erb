@@ -1,6 +1,8 @@
 <div class = "games_container1">
-  <h6>Your Profile</h6>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to log out?" } %>
+  <div class="title-container">
+    <h6>Your Profile</h6>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to log out?" }, class: "logout"%>
+  </div>
   <div class="profile-container">
     <div>
       <% if user_signed_in? && current_user.photo.present? %>
@@ -31,8 +33,21 @@
       <h2 class="card-titles">My Games</h2>
       <div class="games-list-container">
         <% @games.each do |game| %>
-          <h4><%= game.name %></h4>
-          <%= link_to "enter", game_path(game) %>
+          <div class="games-list-item">
+            <div class="games-list-inner">
+              <h4><%= game.name %></h4>
+              <% if game.status == "ended" %>
+                <p style="color: red;"><%= game.status %></p>
+                <div class="winner-index-container">
+                  <%= image_tag("3d-fluency-trophy.png", class: "index-trophy") %>
+                  <p>Winner: <%= @winner.user.name %></p>
+                </div>
+              <% else %>
+                <p style="color: green;"><%= game.status %></p>
+              <% end %>
+            </div>
+            <%= link_to "enter", game_path(game) %>
+          </div>
         <% end  %>
       </div>
     </div>
@@ -40,15 +55,9 @@
       <h2 class="card-titles">Pending Games</h2>
       <% @pending_games.each do |game| %>
         <%= render 'games/partials/game-card', game: game %>
-        <!--       <li>-->
-        <%#= game.name %>
-        <%#= game.status %>
-        <%#= link_to "Accept",root_path, method: :post, class: "btn btn-success" %>
-        <%#= link_to "Decline", root_path, method: :delete, class: "btn btn-danger" %>
-        <!--        </li>-->
       <% end %>
     </div>
   </div>
-  <%= link_to "Start new game", new_game_path, class: "btn-primary" %>
+  <%= link_to "Start new game", new_game_path, class: "btn-primary start" %>
 </div>
 <%= render "partial/footer", game: @game %>

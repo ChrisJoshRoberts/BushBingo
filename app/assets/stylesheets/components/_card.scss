@@ -56,3 +56,17 @@
   color: white;
   border-radius: 50px;
 }
+.park-card-info {
+  margin-top: 8px;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .view-btn {
+    margin-right: 16px;
+    color: #FB5607;
+    font-size: 16px;
+
+  }
+}
