@@ -65,22 +65,24 @@
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <div class="leaderboard-card">
         <% @game_players.each do |game_player| %>
-          <% if game_player.user == current_user %>
-            <div class="leaderboard-item you">
-              <strong>
-                <p>YOU</p>
-              </strong>
-              <p>Points: <%= game_player.points %></p>
-              <%= link_to "View Sightings" %>
-            </div>
-          <% else %>
-            <div class="leaderboard-item">
-              <strong>
-                <p><%= game_player.user.name %></p>
-              </strong>
-              <p>Points: <%= game_player.points %></p>
-              <%= link_to "View Sightings" %>
-            </div>
+          <% unless game_player.status == "pending" || game_player.status == "declined" %>
+            <% if game_player.user == current_user %>
+              <div class="leaderboard-item you">
+                <strong>
+                  <p>YOU</p>
+                </strong>
+                <p>Points: <%= game_player.points %></p>
+                <%= link_to "View Sightings" %>
+              </div>
+            <% else %>
+              <div class="leaderboard-item">
+                <strong>
+                  <p><%= game_player.user.name %></p>
+                </strong>
+                <p>Points: <%= game_player.points %></p>
+                <%= link_to "View Sightings" %>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
         <% if @game.status == "started" %>
