@@ -1,5 +1,9 @@
 <% content_for :body_class, 'game-background' %>
-<%= link_to image_tag("arrow-back-white.png"), game_path(@game), class: "back-arrow-white" %>
+<% if @game %>
+  <%= link_to image_tag("arrow-back-white.png"), game_path(@game), class: "back-arrow-white" %>
+<% else %>
+  <%= link_to image_tag("arrow-back-white.png"), park_path(@park), class: "back-arrow-white" %>
+<% end %>
 <div class="park-animals-header">
   <h1><%= @park.name %> Animals</h1>
 </div>
@@ -7,14 +11,22 @@
   <div class="animal-card">
     <%= image_tag(park_animal.animal.image) %>
     <div class="game-info">
-      <%= link_to park_animal.animal.name, game_park_park_animal_path(@game.id, @park.id, park_animal) %>
+      <% if @game %>
+        <%= link_to park_animal.animal.name, game_park_park_animal_path(@game, @park, park_animal) %>
+      <% else %>
+        <%= link_to park_animal.animal.name, park_park_animal_path(@park, park_animal) %>
+      <% end %>
       <p>points: <%= park_animal.animal.points %></p>
     </div>
-    <%= simple_form_for([@game, park_animal.animal, @spotted_animal]) do |f| %>
-      <button type="submit">
-        <%= image_tag("add.png") %>
-      </button>
-    <% end %>
+    <% if @game %>
+      <%= simple_form_for([@game, park_animal.animal, @spotted_animal]) do |f| %>
+        <button type="submit">
+          <%= image_tag("add.png") %>
+        </button>
+      <% end %>
+    <% else %>
+      <%= link_to "View", park_park_animal_path(@park, park_animal), style: "text-decoration: none; font-weight: 600; color: #FB5607; margin: 8px;" %>
+    <% end  %>
   </div>
 <% end %>
 <%# @park_animals.each do |park_animal| %>

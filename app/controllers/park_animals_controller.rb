@@ -1,6 +1,6 @@
 class ParkAnimalsController < ApplicationController
   def index
-    @game = Game.find(params[:game_id])
+    @game = Game.find_by(id: params[:game_id])
     @park = Park.find(params[:park_id])
     @search_results = nil
     @park_animals = @park.park_animals
@@ -13,14 +13,11 @@ class ParkAnimalsController < ApplicationController
       @spotted_animal = SpottedAnimal.new
   end
 
-  def index_2
-    @park = Park.find(params[:park_id])
-    @park_animals = @park.park_animals
-  end
+
 
   def show
     @park_animal = ParkAnimal.find(params[:id])
     @park = Park.find(params[:park_id])
-    @game = Game.find(params[:game_id])
+    @game = Game.find_by(id: params[:game_id])
   end
 end
