@@ -36,6 +36,7 @@ class GamesController < ApplicationController
     @game.status = "started"
     @game.park = @park
     if @game.save
+      GamePlayer.create(user: current_user, game: @game, status: "accepted", points: 0)
       redirect_to new_game_game_player_path(@game), notice: "Game was successfully created."
     else
       redirect_to park_path(@park), status: :unprocessable_entity
