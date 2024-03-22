@@ -28,7 +28,7 @@
         <div class="user-container">
           <% if user.photo.present? %>
             <%= cl_image_tag(user.photo.key, class: "avatar-user") %>
-          <% else %>
+          <% elsif user.image.present? %>
             <%= image_tag user.image, class: "avatar-user" %>
           <% end %>
           <% if user.name.present? %>
