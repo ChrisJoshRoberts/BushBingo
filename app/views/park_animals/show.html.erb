@@ -1,5 +1,9 @@
 <div class="park-animal-container" data-controller="park-animal">
-  <%= link_to image_tag("back_arrow.png"), game_path(@game), class: "back-arrow" %>
+  <% if @game %>
+    <%= link_to image_tag("back_arrow.png"), game_path(@game), class: "back-arrow" %>
+  <% else %>
+    <%= link_to image_tag("back_arrow.png"), park_park_animals_path(@park), class: "back-arrow" %>
+  <% end %>
   <div class="animal-header">
     <%= image_tag @park_animal.animal.image %>
     <div class="animal-details">

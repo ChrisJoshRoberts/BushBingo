@@ -1,5 +1,9 @@
 {
  "name": "BushBingo",
+ "start_url": "/",
+ "display": "standalone",
+ "theme_color": "#ffffff",
+ "background_color": "#ffffff",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",

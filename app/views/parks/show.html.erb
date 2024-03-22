@@ -32,6 +32,7 @@
         <% end %>
       </div>
     </div>
+    <%= link_to "View animals", park_park_animals_path(@park), style: "text-decoration: none; font-weight: 600; color: #FB5607; margin-top: -16px; margin-bottom: 24px;" %>
     <p><%= @park.description %></p>
     <div class="map-container"
       data-controller="map"
