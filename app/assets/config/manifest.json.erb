@@ -1,0 +1,17 @@
+{
+  "background_color": "white",
+  "description": "BushBingo is a game where you can play bingo with your friends and family. It's a great way to have fun and stay connected with your loved ones.",
+  "display": "fullscreen",
+  "name": "BushBingo",
+  "icons": [
+    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "icons/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}
