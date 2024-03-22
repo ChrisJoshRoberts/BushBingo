@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :parks, only: [:index, :show] do
     resources :games, only: [:create]
+    resources :park_animals, only: [:index, :show]
   end
 
   resources :games, only: [:index, :show, :new, :create, :destroy, :update] do
