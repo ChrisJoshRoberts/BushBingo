@@ -51,24 +51,23 @@
               </div>
             <% end  %>
           <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="pills-pending-games" role="tabpanel" aria-labelledby="pills-pending-games-tab">
-      <h2 class="card-titles">Pending Games</h2>
-      <div class="games-list-container">
-        <% @pending_game_players.each do |game_player| %>
-          <div class="invite-container">
-            <p class="invite-msg">You have been invited to: <%= game_player.game.name %> game.</p>
-            <%= link_to "Decline", decline_game_path(game_player.game), data: { turbo_method: :delete }, class: "btn-secondary" %>
-            <div class="seperator"></div>
-            <%= link_to "Accept", accept_game_path(game_player.game), data: { turbo_method: :post }, class: "btn-primary" %>
-          </div>
         <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
+  <div class="tab-pane fade" id="pills-pending-games" role="tabpanel" aria-labelledby="pills-pending-games-tab">
+    <h2 class="card-titles">Pending Games</h2>
+    <div class="games-list-container">
+      <% @pending_game_players.each do |game_player| %>
+        <div class="invite-container">
+          <p class="invite-msg">You have been invited to: <%= game_player.game.name %> game.</p>
+          <%= link_to "Decline", decline_game_path(game_player.game), data: { turbo_method: :delete }, class: "btn-secondary" %>
+          <div class="seperator"></div>
+          <%= link_to "Accept", accept_game_path(game_player.game), data: { turbo_method: :post }, class: "btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <%= link_to "Start new game", parks_path, class: "btn-primary start", data: {target: "games.button"}%>
-</div>
 </div>
 <%= render "partial/footer", game: @game %>
