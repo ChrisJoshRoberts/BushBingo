@@ -61,6 +61,7 @@ gem "pg_search"
 gem "geocoder"
 gem "htmlbeautifier"
 gem "httparty"
+gem "rails_admin", "3.0"
 
 
 
@@ -88,3 +89,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+gem "sassc-rails"
